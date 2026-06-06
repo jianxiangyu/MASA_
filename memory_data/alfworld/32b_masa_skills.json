@@ -1,0 +1,290 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Use MOVE to Place Objects — Never PUT",
+      "principle": "To place an object at any destination, the ONLY valid command is 'move <object> to <destination>'. Example: 'move mug 1 to sidetable 1'. The command 'put <object> in/on <destination>' does NOT work in this environment. Always use 'move'. IMPORTANT: 'move' only works when you are HOLDING the object (after a successful 'take'). If you have not taken the object, 'move' will silently fail.",
+      "when_to_apply": "Every time you need to place, deliver, or drop an object at a location."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Output Format: ONLY <action> Tags — Nothing Else",
+      "principle": "Every response must be EXACTLY one action wrapped in <action></action> tags. NO reasoning, NO planning, NO commentary, NO numbering, NO <counter> tags. Just: <action>your action here</action>. Any text outside the tags or different tag names will cause failure.",
+      "when_to_apply": "Every single response without exception."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "TAKE Is Mandatory — Confirm 'You pick up' Before Proceeding",
+      "principle": "You CANNOT move, heat, cool, or clean an object unless you are currently HOLDING it (via 'take'). After 'take X from Y', check the NEXT observation. It MUST say 'You pick up the X from the Y.' If instead you see 'Nothing happens', the take FAILED — the object is NOT there or you're already holding something. CRITICAL: A failed take means you are empty-handed (or holding something else) — every subsequent heat/cool/clean/move will also fail. You can only hold ONE object at a time.",
+      "when_to_apply": "After every take action — the very next observation determines if you can proceed."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Fixed Pipeline: Find → Take → [Transform] → Go Destination → Move → DONE",
+      "principle": "Every task follows this exact pipeline: (1) Go to locations to find the target object. (2) 'take <object> from <location>'. (3) ONLY if task requires clean/heat/cool: go to appliance, execute transform command. (4) 'go to <destination>'. (5) 'move <object> to <destination>'. (6) STOP — task is complete! CRITICAL RULES: Step 3 is ONLY for tasks with explicit transformation words ('hot'/'heat' → microwave, 'cool'/'cold' → fridge, 'clean' → sinkbasin). If no transformation word → skip step 3 entirely! ALWAYS do steps 1+2 FIRST — never go to appliance or destination before having the object in hand. After step 5 succeeds, the task is DONE — do NOT repeat the pipeline!",
+      "when_to_apply": "At the start of every task and whenever you lose track of progress."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "⚠️⚠️⚠️ ABSOLUTE RULE: If target NOT in observation → TAKE NOTHING. GO ELSEWHERE. ⚠️⚠️⚠️",
+      "principle": "THIS IS THE #1 CAUSE OF FAILURE. You MUST follow this EXACTLY: (1) After arriving at a location, READ the item list in your observation. (2) Search for your EXACT target object name (same spelling). (3) If target IS in the list → take it. If target is NOT in the list → DO NOT TAKE ANYTHING AT ALL. Not even something 'similar'. Go to the NEXT location in your search sequence. CRITICAL CONFUSIONS — these are ALL DIFFERENT objects: 'potato' ≠ 'tomato' ≠ 'egg' ≠ 'apple' ≠ 'lettuce' | 'plate' ≠ 'pan' ≠ 'pot' | 'pen' ≠ 'pencil' | 'mug' ≠ 'cup' | 'soapbottle' ≠ 'spraybottle' ≠ 'soapbar' | 'fork' ≠ 'ladle' ≠ 'spatula' ≠ 'butterknife' ≠ 'knife' | 'cloth' ≠ 'dishsponge' | 'cd' ≠ 'book' ≠ 'keychain' | 'watch' ≠ 'alarmclock' | 'remotecontrol' ≠ 'cellphone' | 'creditcard' ≠ 'pencil' | 'tissuebox' ≠ 'toiletpaper'. TAKING THE WRONG OBJECT IS FATAL — you waste the entire episode!",
+      "when_to_apply": "Before EVERY take action. This rule has ZERO exceptions."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "CONFUSION PAIRS: These Look Similar But Are COMPLETELY DIFFERENT Objects",
+      "principle": "MEMORIZE these confusion pairs — they are the #1 cause of taking wrong objects: 'plate' ≠ 'pan' ≠ 'pot' (3 DIFFERENT cookware!) | 'pen' ≠ 'pencil' | 'soapbottle' ≠ 'spraybottle' ≠ 'soapbar' | 'mug' ≠ 'cup' ≠ 'bowl' | 'potato' ≠ 'tomato' ≠ 'egg' ≠ 'apple' ≠ 'lettuce' (5 DIFFERENT foods!) | 'fork' ≠ 'knife' ≠ 'butterknife' ≠ 'spatula' ≠ 'ladle' ≠ 'spoon' (6 DIFFERENT utensils!) | 'cloth' ≠ 'dishsponge' ≠ 'soapbar' | 'cd' ≠ 'book' ≠ 'keychain' ≠ 'creditcard' | 'remotecontrol' ≠ 'cellphone' | 'watch' ≠ 'alarmclock' | 'tissuebox' ≠ 'toiletpaper' ≠ 'cloth'. RULE: Compare the task object name with the obs item name CHARACTER BY CHARACTER. If even ONE character differs, it is a DIFFERENT object. DO NOT TAKE IT.",
+      "when_to_apply": "Before every 'take' action — especially when similar-sounding objects are present."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "⚠️ ONLY Use Actions from the Admissible Actions List!",
+      "principle": "Each observation shows 'Your admissible actions of the current situation are: [...]'. You MUST ONLY choose actions from THIS list. If an action is NOT in the admissible list, it will return 'Nothing happens' and waste a step. COMMON MISTAKES: (1) 'go to desklamp 1' — desklamp is NEVER a go-to destination! It's an item ON a surface. (2) 'go to X' when X doesn't exist in this room. (3) 'take X' when X is not at current location. BEFORE ACTING: Scan the admissible actions list. If your intended action isn't there, choose a different valid action.",
+      "when_to_apply": "EVERY step — always verify your action is in the admissible list."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Search Systematically — Follow the FULL Sequence, NEVER Revisit",
+      "principle": "When searching for an object, follow a COMPLETE search sequence. NEVER oscillate between 2-3 locations! Kitchen/food items (tomato, apple, egg, potato, lettuce, bread, plate, pan, pot, mug, cup, bowl, fork, knife, butterknife, spatula, ladle): countertop 1 → countertop 2 → countertop 3 → diningtable 1 → diningtable 2 → stoveburner 1-4 → cabinet 1-4 (open each) → shelf 1-3 → fridge 1 (open) → microwave 1 (open) → sinkbasin 1 → drawer 1-4 (open each). Bedroom items (book, cd, pencil, pen, cellphone, laptop, alarmclock, keychain, pillow, box, vase, watch, remotecontrol, creditcard): desk 1 → desk 2 → sidetable 1-3 → dresser 1 → shelf 1-5 → drawer 1-4 (open) → bed 1 → armchair 1-2 → ottoman 1 → safe 1 (open) → cabinet 1 (open) → tvstand 1 → coffeetable 1 → sofa 1. Bathroom items (cloth, soapbar, soapbottle, spraybottle, toiletpaper, candle, dishsponge): bathtubbasin 1 → countertop 1-2 → shelf 1-3 → cabinet 1-4 (open) → toilet 1 → cart 1 → drawer 1 (open) → towelholder 1 → handtowelholder 1 → garbagecan 1. PAN specifically: stoveburner 1/2/3/4 FIRST! If 'go to X' returns 'Nothing happens' — skip to next.",
+      "when_to_apply": "When searching for the target object. Follow sequence until found."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "If 'Nothing happens' — STOP, Diagnose, Change Strategy",
+      "principle": "'Nothing happens' means your action COMPLETELY FAILED. Causes: (1) 'take X from Y' failed → X is NOT at Y or you are already holding something (check with 'inventory'). (2) 'move X to Y' failed → you are NOT holding X. (3) 'heat/cool/clean X' failed → you are NOT holding X. (4) 'go to X' when already at X → skip. (5) 'go to X' that doesn't exist → try next. CRITICAL: NEVER repeat an action that just returned 'Nothing happens'. Try something DIFFERENT.",
+      "when_to_apply": "Immediately after any 'Nothing happens' observation."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "⚠️ ANTI-OSCILLATION: NEVER Return to a Location You Already Visited",
+      "principle": "THE #2 CAUSE OF FAILURE: Model visits countertop 1 → sidetable 1 → countertop 1 → sidetable 1 → STUCK FOR 40 STEPS! ABSOLUTE RULE: Once you visit a location and your target is NOT there, that location is DEAD. NEVER go back. Each step MUST go to a NEW location you haven't tried. After 3 locations without target: try different CATEGORIES (if tried surfaces → try containers; if tried desk/shelf → try drawers/cabinet/safe). NEVER go back to a location you've already been to!",
+      "when_to_apply": "EVERY navigation step. Mentally track visited locations."
+    },
+    {
+      "skill_id": "gen_011",
+      "title": "⚠️⚠️ APPLIANCE vs DESTINATION — Read the Task Words CAREFULLY!",
+      "principle": "Microwave, fridge, and sinkbasin are BOTH appliances AND locations. CRITICAL RULE: Use as APPLIANCE only if the task contains THESE EXACT keywords: 'hot'/'heat' → microwave | 'cool'/'cold' → fridge | 'clean' → sinkbasin. If NONE of these keywords appear in the task → treat as PLAIN DESTINATION (just 'move X to Y'). EXAMPLES: 'put egg ON microwave' → NO heat keyword → just move egg to microwave 1. 'put cup IN fridge' → NO cool keyword → just move cup to fridge 1. 'put a HOT egg in fridge' → has 'hot' → heat with microwave → then fridge is JUST destination (move to fridge, do NOT cool!). 'COOL pan and put in stoveburner' → has 'cool' → cool with fridge → then stoveburner is JUST destination.",
+      "when_to_apply": "EVERY time before interacting with microwave, fridge, or sinkbasin — check task words."
+    },
+    {
+      "skill_id": "gen_012",
+      "title": "DROP Wrong Object Immediately, Then CONTINUE FORWARD — Never Go Back!",
+      "principle": "If you took the wrong object: (1) Immediately 'move <wrong_object> to <current_location>' to drop it. (2) Then CONTINUE FORWARD to the NEXT UNVISITED location in your search sequence. DO NOT go back to previously visited locations! (3) Keep following the systematic search sequence from where you are. KEY: Dropping + continuing forward is just 1 wasted step. Dropping + going BACK to old locations = oscillation death spiral. SYMPTOM of problem: 'take X' fails even though X is visible → you're already holding something. Drop first!",
+      "when_to_apply": "When 'take' fails on a visible object, or when you realize you took the wrong object."
+    },
+    {
+      "skill_id": "gen_013",
+      "title": "FIRST ACTION: Go to Most Likely Location for Target Object — NOT Destination!",
+      "principle": "Your FIRST 'go to' must be where the TARGET OBJECT is likely to be, NOT where you need to deliver it! OBJECT LOCATION PRIORS: FOOD (tomato, apple, potato, lettuce, egg, bread): countertop → fridge (open) → diningtable. COOKWARE (plate, pan, pot, bowl): pan → stoveburner 1 FIRST! Others → diningtable → countertop → cabinet (open). UTENSILS (fork, knife, butterknife, spatula, ladle): countertop → diningtable → drawer (open). DRINKS (mug, cup): countertop → diningtable → coffeemachine → shelf → cabinet (open). BEDROOM SMALL (cd, pen, pencil, keychain, alarmclock, creditcard, watch): desk → sidetable → dresser → drawer (open). LARGE (book, pillow, box, laptop): desk → bed → armchair → shelf → dresser. BATHROOM (cloth, soapbar, soapbottle, spraybottle, dishsponge, toiletpaper, candle): bathtubbasin → countertop → shelf → cabinet (open) → cart → toilet.",
+      "when_to_apply": "When deciding the first location to search. ALWAYS go to likely source, NEVER destination."
+    },
+    {
+      "skill_id": "gen_014",
+      "title": "Open Closed Containers — Objects Hide Inside!",
+      "principle": "Drawers, cabinets, fridge, microwave, and safe can be closed. You must 'open <container>' before seeing contents. IMPORTANT: After 3+ open surfaces without finding target, START OPENING CONTAINERS. Objects like pencil, creditcard, knife, butterknife, cd, keychain are commonly in drawers. Food items sometimes in fridge. Small valuable items in safe. NEVER skip containers — many objects are ONLY inside them!",
+      "when_to_apply": "When arriving at a closed container OR after 3 open surfaces without finding target."
+    }
+  ],
+  "task_specific_skills": {
+    "pick_and_place": [
+      {
+        "skill_id": "pic_001",
+        "title": "Simple Pick and Place: Find → Take → Go Dest → Move (NO Transform!)",
+        "principle": "For 'put X in/on Y' tasks (without 'hot', 'cool', or 'clean' in task): (1) Go to locations until you SEE X in the observation. (2) 'take X from <location>'. (3) 'go to Y'. (4) 'move X to Y'. That's ALL. NEVER heat, cool, or clean in a pick-and-place task. Even if Y is microwave, fridge, or sinkbasin — they are JUST destinations.",
+        "when_to_apply": "Any task that says 'put some/a <object> in/on <destination>' WITHOUT words hot/cool/clean."
+      },
+      {
+        "skill_id": "pic_002",
+        "title": "⚠️ Microwave/Fridge as DESTINATION — JUST Move, NEVER Transform!",
+        "principle": "Tasks like 'put some egg ON microwave' or 'put a cup IN fridge' or 'put tomato on microwave' mean microwave/fridge are just SHELVES to place items. CORRECT: take obj → go to microwave 1 → move obj to microwave 1. WRONG: heat/cool the object! SIMPLE TEST: Does the task contain 'hot'/'heat'/'cool'/'cold'/'clean'? If NO → ZERO transformation allowed! Just move!",
+        "when_to_apply": "When the destination is microwave, fridge, or sinkbasin in a pick-and-place task."
+      },
+      {
+        "skill_id": "pic_003",
+        "title": "If Target Not at First Location — Keep Searching, Take NOTHING",
+        "principle": "If you arrive and item list does NOT contain your target: DO NOT take anything! Go to the NEXT location. Keep searching until you find your exact target. An empty-handed search costs only 1 step per location. Taking wrong object costs the ENTIRE episode (50 steps wasted).",
+        "when_to_apply": "At EVERY location during search phase — verify target is present before taking."
+      }
+    ],
+    "pick_two_obj_and_place": [
+      {
+        "skill_id": "pt2_001",
+        "title": "Two SEPARATE Delivery Cycles — ONE Object At a Time",
+        "principle": "You can only hold ONE object at a time! Execute two FULL delivery cycles. Cycle 1: find obj_A → take → go to dest → move. Cycle 2: find obj_B at a DIFFERENT location → take → go to dest → move. Both objects must be the SAME TYPE but DIFFERENT NUMBERS (e.g., 'cd 1' and 'cd 2'). During cycle 1, remember where you saw another instance for cycle 2.",
+        "when_to_apply": "Any task with 'put two' or 'find two'."
+      },
+      {
+        "skill_id": "pt2_002",
+        "title": "⚠️⚠️ After First Delivery — NEVER Retake the Delivered Object!",
+        "principle": "THE #1 PICK-TWO FAILURE: After moving 'toiletpaper 4 to toilet', model takes toiletpaper 4 AGAIN from toilet → delivers again → retakes → INFINITE LOOP. ABSOLUTE RULES: (1) Once delivered, that specific numbered object is DONE FOREVER. (2) For second object: go to COMPLETELY DIFFERENT locations — never back to destination! (3) Find a DIFFERENT NUMBERED instance (e.g., delivered cd 1 → now find cd 2 or cd 3). (4) If you arrive at destination and see your previously delivered object → IGNORE IT, LEAVE IMMEDIATELY, search elsewhere. (5) The second object MUST come from a different location than the destination!",
+        "when_to_apply": "After completing first delivery in pick_two."
+      },
+      {
+        "skill_id": "pt2_003",
+        "title": "Second Object: Expand Search Aggressively — spraybottle≠soapbottle!",
+        "principle": "After first delivery, search broadly for second instance. Check ALL possible locations: stoveburner 1-4, cabinet 1-4 (open), drawer 1-4 (open), shelf 1-6, fridge (open), microwave (open), sinkbasin, bathtubbasin, toilet, cart, safe (open), garbagecan, countertop 1-3, diningtable, dresser. Try at LEAST 8-10 different locations. NEVER go back to checked locations. CRITICAL: Only take your EXACT target type! spraybottle≠soapbottle, cd≠book, watch≠keychain, tissuebox≠toiletpaper!",
+        "when_to_apply": "When searching for the second object in pick_two."
+      }
+    ],
+    "look_at_obj_in_light": [
+      {
+        "skill_id": "loo_001",
+        "title": "⚠️ CRITICAL: Desklamp is NOT a Go-to Location — It's ON a Surface!",
+        "principle": "FATAL MISTAKE: 'go to desklamp 1' → 'Nothing happens'! Desklamp is an ITEM sitting on a surface (desk, sidetable), NOT a standalone location. You CANNOT 'go to desklamp'. CORRECT: 'go to desk 1' (or sidetable, wherever desklamp sits). Then 'use desklamp 1' becomes available in admissible actions. STRATEGY: Find which surface has desklamp → remember that location. Find target → take it → go to desklamp's surface → 'use desklamp 1'.",
+        "when_to_apply": "Any task saying 'examine/look at ... with/under desklamp'."
+      },
+      {
+        "skill_id": "loo_002",
+        "title": "⚠️⚠️ 'use desklamp 1' ONLY Works at Desklamp's EXACT Surface!",
+        "principle": "CRITICAL FAILURE PATTERN: Model takes correct object, goes to desk 1, tries 'use desklamp 1' → Nothing happens! WHY? Because desklamp is on SIDETABLE 1, not desk 1! RULE: 'use desklamp 1' ONLY succeeds when you are at the EXACT surface where desklamp physically sits. Step 1: At the very START, check desk 1, sidetable 1, sidetable 2, dresser 1. When you SEE 'desklamp 1' in the items list → MEMORIZE this location. Step 2: After taking target, go to THAT MEMORIZED location. Step 3: 'use desklamp 1'. If 'use desklamp 1' is NOT in admissible actions → you're at the WRONG surface! Go to the one where you saw desklamp.",
+        "when_to_apply": "Before and after every 'use desklamp 1' attempt."
+      },
+      {
+        "skill_id": "loo_003",
+        "title": "Look_at Complete Procedure: Find Desklamp → Find & Take EXACT Target → Return → Use Desklamp",
+        "principle": "Step 1: Find desklamp's location. Check desk 1, sidetable 1, 2, 3, dresser 1. When you see 'desklamp 1' in items → NOTE this location. Step 2: Check if target is there too. If YES: take target → use desklamp 1 → DONE! If NO: search other locations for target. Step 3: Take target wherever found. Step 4: Go BACK to desklamp's surface location. Step 5: 'use desklamp 1'. CRITICAL: You must be HOLDING the EXACT target object when you use desklamp! COMMON ERROR: Using 'examine <object>' instead of 'use desklamp 1'. The command 'examine' just prints a description — it does NOT complete the task! Only 'use desklamp 1' while holding the object completes it!",
+        "when_to_apply": "At the start of any look_at task."
+      },
+      {
+        "skill_id": "loo_004",
+        "title": "Examine Target Locations — Where to Find Common Objects",
+        "principle": "When target is NOT at the desklamp's location, search these places: pillow → bed 1 (almost always!) | cd → drawer (open!), shelf, desk 2 | book → shelf, bed, armchair, desk 2 | bowl/plate → diningtable, countertop, cabinet | keychain → drawer (open!), dresser, sidetable | box → armchair, shelf, dresser | pen/pencil → drawer (open!), desk 2 | creditcard → dresser, drawer, sidetable. DO NOT oscillate between desk and sidetable — expand to drawers, bed, armchair, shelf!",
+        "when_to_apply": "When searching for target object in examine tasks and it's not at desklamp's location."
+      }
+    ],
+    "clean": [
+      {
+        "skill_id": "cle_001",
+        "title": "Clean Flow: Find CORRECT Object → Take → Sinkbasin → Clean → Dest → Move",
+        "principle": "For 'clean X and put it in Y': (1) Search for X. DO NOT go to sinkbasin first! (2) At each location: if EXACT target not listed → take NOTHING → go next. (3) When you find X: 'take X from <location>'. Verify 'You pick up'. (4) 'go to sinkbasin 1'. (5) 'clean X with sinkbasin 1'. (6) 'go to Y'. (7) 'move X to Y'. ONLY use 'clean' — NEVER 'cool' or 'heat' in a clean task.",
+        "when_to_apply": "Any task saying 'clean' or 'put a clean <object>'."
+      },
+      {
+        "skill_id": "cle_002",
+        "title": "⚠️ NEVER Take a Non-Target in Clean Tasks — Compare EXACT Spelling!",
+        "principle": "THE #1 CLEAN FAILURE: Task says 'clean ladle', model takes 'fork' or 'spatula'. THIS IS FATAL. These are ALL DIFFERENT: ladle ≠ spatula ≠ fork ≠ butterknife ≠ knife ≠ spoon | cloth ≠ dishsponge ≠ soapbar | soapbar ≠ soapbottle | lettuce ≠ apple ≠ tomato. RULE: At each location, look for the EXACT word from your task. If you don't see that exact word → take NOTHING → next location.",
+        "when_to_apply": "Before taking any object in a clean task."
+      }
+    ],
+    "heat": [
+      {
+        "skill_id": "hea_001",
+        "title": "Heat Flow: Find → Take → Microwave → Heat → Go Dest → Move → DONE",
+        "principle": "For 'put a hot X in Y' or 'heat X and put it in Y': (1) Find X at countertop, diningtable, fridge (open), stoveburner. (2) 'take X from <location>' — CONFIRM 'You pick up'. (3) 'go to microwave 1'. (4) 'heat X with microwave 1'. (5) 'go to Y'. (6) 'move X to Y'. (7) STOP — task DONE! CRITICAL: After 'move' succeeds, the task is COMPLETE. Do NOT take the object again or repeat the cycle!",
+        "when_to_apply": "Any task saying 'heat', 'hot', or 'put a hot <object>'."
+      },
+      {
+        "skill_id": "hea_002",
+        "title": "⚠️⚠️⚠️ FRIDGE = JUST A SHELF in Heat Tasks — NEVER EVER COOL! ⚠️⚠️⚠️",
+        "principle": "When task says 'put a hot X in fridge' or 'heat X and put it in fridge', the word 'fridge' means DELIVERY LOCATION only! CORRECT SEQUENCE: take X → heat X with microwave 1 → go to fridge 1 → MOVE X to fridge 1 → DONE! CATASTROPHIC ERROR: take X → heat → go to fridge → 'cool X with fridge 1' → THIS RUINS EVERYTHING! The word 'cool' must NEVER appear in a heat task. After heating, fridge is ONLY a shelf to put the hot object on. REAL FAILURES: Tasks failed because model heated correctly then COOLED at fridge! 'move' is ALL you do at the destination!",
+        "when_to_apply": "ANY heat task where destination is fridge. THIS IS THE #1 HEAT FAILURE!"
+      },
+      {
+        "skill_id": "hea_003",
+        "title": "Heat the RIGHT Object — plate≠pan, mug≠cup, tomato≠potato≠egg, apple≠lettuce",
+        "principle": "'hot mug' = MUG (not cup!) | 'hot cup' = CUP (not mug!) | 'hot plate' = PLATE (not pan, not pot!) | 'hot tomato' = TOMATO (not potato, not egg!) | 'hot apple' = APPLE (not potato, not egg!) | 'hot egg' = EGG (not potato, not tomato!) | 'hot potato' = POTATO (not tomato, not egg!). RULE: Read your task word. At each location, find that EXACT word in the item list. If not there → take NOTHING → next location. NEVER take a similar-looking food!",
+        "when_to_apply": "Before taking any object in a heat task."
+      },
+      {
+        "skill_id": "hea_004",
+        "title": "After Heating — ONLY 'go to dest' + 'move'. Nothing else!",
+        "principle": "Once 'heat X with microwave 1' succeeds: the ONLY remaining actions are: (1) 'go to <destination>' (2) 'move X to <destination>'. NO detours. NO cooling. NO extra heating. NO extra takes. After 'move' succeeds → task COMPLETE, stop acting!",
+        "when_to_apply": "Immediately after successful heating."
+      }
+    ],
+    "cool": [
+      {
+        "skill_id": "coo_001",
+        "title": "Cool Flow: Find → Take CORRECT Object → Fridge → Cool → Dest → Move → DONE",
+        "principle": "For 'cool X and put it in Y': (1) Find X at stoveburner (for pan/pot!), countertop, diningtable, cabinet, shelf. (2) 'take X from <location>' — CONFIRM 'You pick up'. (3) 'go to fridge 1'. (4) 'cool X with fridge 1'. (5) 'go to Y'. (6) 'move X to Y'. (7) STOP — DONE! If take fails → search elsewhere. NEVER heat in cool task!",
+        "when_to_apply": "Any task saying 'cool' or 'put a cool <object>'."
+      },
+      {
+        "skill_id": "coo_002",
+        "title": "⚠️⚠️ MICROWAVE = JUST A SHELF in Cool Tasks — NEVER HEAT! ⚠️⚠️",
+        "principle": "When task says 'put a cool X in microwave', microwave = delivery location. CORRECT: take X → cool X with fridge 1 → go to microwave 1 → MOVE X to microwave 1. CATASTROPHICALLY WRONG: heat X with microwave 1 (THIS DESTROYS THE TASK!). After cooling, the destination is just a shelf.",
+        "when_to_apply": "ANY cool task where destination is microwave."
+      },
+      {
+        "skill_id": "coo_003",
+        "title": "⚠️⚠️ Cool the EXACT Object — pot≠pan≠plate, tomato≠potato≠egg, apple≠lettuce",
+        "principle": "'cool pan' → PAN only (stoveburner 1-4 first!). 'cool plate' → PLATE (not pan!). 'cool pot' → POT (not pan, not plate!). 'cool tomato' → TOMATO (not potato, not egg!). 'cool apple' → APPLE (not lettuce, not egg!). 'cool egg' → EGG (not potato, not tomato!). 'cool mug' → MUG (not cup!). RULE: At each location, if your EXACT target word is NOT in the item list → take NOTHING → go to next location. DO NOT take a different object!",
+        "when_to_apply": "Before taking any object in a cool task."
+      },
+      {
+        "skill_id": "coo_004",
+        "title": "After Cooling — ONLY 'go to dest' + 'move'. Nothing else!",
+        "principle": "After 'cool X with fridge 1' succeeds: ONLY do (1) 'go to <destination>' (2) 'move X to <destination>'. If dest is microwave: go to microwave 1 → move X to microwave 1 (NOT heat!). If dest is countertop: go to countertop 1 → move X to countertop 1. NO detours, NO extra actions. After 'move' → task DONE!",
+        "when_to_apply": "Immediately after successful cooling."
+      },
+      {
+        "skill_id": "coo_005",
+        "title": "⚠️ After Cooling — NEVER Heat! After Heating — NEVER Cool!",
+        "principle": "CRITICAL: Once you have cooled an object, NEVER use 'heat' on it afterward! Once you have heated an object, NEVER use 'cool' on it afterward! The task requires EXACTLY ONE transformation. After that transformation, go DIRECTLY to destination and 'move'. Any second transformation UNDOES the first and FAILS the task!",
+        "when_to_apply": "After any successful cool or heat — reminder to go straight to destination."
+      }
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake_id": "err_001",
+      "description": "Using 'put X in/on Y' instead of 'move X to Y'.",
+      "correction": "Always use 'move X to Y'. The 'put' command does not exist."
+    },
+    {
+      "mistake_id": "err_002",
+      "description": "⚠️ THE #1 ERROR: Taking WRONG object! pen≠pencil, pan≠plate≠pot, mug≠cup≠bowl, soapbottle≠spraybottle≠soapbar, potato≠tomato≠egg≠apple≠lettuce, fork≠ladle≠spatula≠butterknife≠spoon, cloth≠dishsponge, watch≠alarmclock, creditcard≠pencil, tissuebox≠toiletpaper.",
+      "correction": "Read the task word. Read the observation item list. Are they the EXACT same word? If even one letter differs → DIFFERENT OBJECT → DO NOT TAKE. Go to next location instead."
+    },
+    {
+      "mistake_id": "err_003",
+      "description": "⚠️⚠️ COOLING in a HEAT task! Task says 'put hot X in fridge' → model heats X correctly → goes to fridge → COOLS X (WRONG!).",
+      "correction": "After heating, fridge is ONLY a destination shelf. ONLY do 'move X to fridge 1'. NEVER cool in a heat task! The task has 'hot'/'heat' = use microwave ONCE. Then just deliver."
+    },
+    {
+      "mistake_id": "err_004",
+      "description": "⚠️⚠️ HEATING in a PICK-AND-PLACE task! Task says 'put egg on microwave' → model heats egg (WRONG! No 'hot'/'heat' keyword!).",
+      "correction": "If task has NO 'hot'/'heat'/'cool'/'cold'/'clean' words → NO transformation. Just: find → take → go to dest → move. Even if dest is microwave or fridge!"
+    },
+    {
+      "mistake_id": "err_005",
+      "description": "⚠️ OSCILLATION: Visiting same 2-3 locations for 40+ steps.",
+      "correction": "NEVER return to a visited location. After each failed location, go to NEXT UNVISITED one. After 3 failures: switch to different category (surfaces → containers)."
+    },
+    {
+      "mistake_id": "err_006",
+      "description": "In pick_two: taking the SAME delivered object again from destination → infinite loop.",
+      "correction": "After first delivery, the delivered object is DONE FOREVER. Find a DIFFERENT NUMBERED instance at a NEW location. Never go back to destination to take the delivered item."
+    },
+    {
+      "mistake_id": "err_007",
+      "description": "'use desklamp 1' fails because you're NOT at desklamp's surface!",
+      "correction": "Desklamp sits on ONE specific surface (desk, sidetable, or dresser). You MUST be at THAT surface when you 'use desklamp 1'. If it fails → go to the surface where you originally saw desklamp listed in items."
+    },
+    {
+      "mistake_id": "err_008",
+      "description": "Using 'examine <object>' repeatedly instead of 'use desklamp 1' in examine tasks.",
+      "correction": "'examine <object>' just prints description — it NEVER completes the task! Only 'use desklamp 1' while holding the correct object at the correct location completes an examine task."
+    },
+    {
+      "mistake_id": "err_009",
+      "description": "⚠️ HEATING after COOLING (or vice versa)! Task says 'cool tomato' → model cools correctly → then HEATS with microwave → UNDOES the cooling!",
+      "correction": "A task requires exactly ONE transformation. After cool → go to dest → move. After heat → go to dest → move. NEVER apply a second transformation — it undoes the first!"
+    },
+    {
+      "mistake_id": "err_010",
+      "description": "Repeating heat→move or cool→move cycle after task is already DONE!",
+      "correction": "After a successful 'move X to destination' the task is COMPLETE. STOP. Do not take the object back and repeat the cycle. If you just successfully moved — you're done!"
+    },
+    {
+      "mistake_id": "err_011",
+      "description": "Using 'go to desklamp 1' — desklamp is NOT a location!",
+      "correction": "Desklamp sits ON a surface (desk, sidetable). Go to that surface. Then 'use desklamp 1' becomes available."
+    },
+    {
+      "mistake_id": "err_012",
+      "description": "Going to DESTINATION first instead of searching for the OBJECT.",
+      "correction": "Task 'put mug in sidetable' → go find mug at diningtable/countertop FIRST. Do NOT go to sidetable first (mug won't be there!)."
+    }
+  ]
+}

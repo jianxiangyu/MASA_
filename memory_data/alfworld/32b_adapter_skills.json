@@ -1,0 +1,310 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Systematic and Non-Redundant Exploration",
+      "principle": "Explore all accessible containers and surfaces in a methodical sweep, keeping a mental record of visited locations. Do not revisit any location unless new information suggests its contents may have changed after your last visit.",
+      "when_to_apply": "Whenever you need to find objects and there are unvisited plausible locations."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Immediate Acquisition When Possible",
+      "principle": "If a goal object is visible and you are not already carrying something, pick it up immediately. If you are carrying another object, note the location of the newly spotted goal object and retrieve it only after delivering your current one.",
+      "when_to_apply": "Upon first spotting a needed object."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Deliver Before Further Exploration",
+      "principle": "Once you have picked up a goal object and know its destination receptacle, navigate directly to that location and place the object before resuming any search for other items.",
+      "when_to_apply": "While holding an object that belongs at a known receptacle."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Track Completion Counts",
+      "principle": "Maintain explicit awareness of how many goal objects you still need to find or place. Do not stop searching or attempt to declare success until that count reaches zero.",
+      "when_to_apply": "Throughout any multi‑object task."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Prompt State Transformation",
+      "principle": "After acquiring an object that requires heating, cooling, or cleaning, immediately go to the nearest applicable appliance and use it to change the object’s state before attempting any delivery.",
+      "when_to_apply": "When the object you are holding must change temperature or cleanliness to satisfy the task."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Spatial Relation Strategy",
+      "principle": "For tasks that involve a spatial relation (under, inside, on, etc.), first locate the reference object and adjust its state if necessary (e.g., turn on lamp). Then restrict your search for the target object to locations spatially near that reference, guided by the relation, or place the object in the implied region.",
+      "when_to_apply": "Whenever the goal description includes a spatial preposition connecting two objects or an object and a piece of furniture."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Open Before Judging Empty",
+      "principle": "Treat all closed containers (drawers, cabinets, fridges, microwaves, etc.) as potentially hiding the goal object. Open and inspect each one before concluding that a needed item is absent.",
+      "when_to_apply": "When you encounter any closed container during a search."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Cognitive Mapping for Navigation",
+      "principle": "Continuously update a mental map of where objects and containers are located. Use this map to plan efficient routes between known points, minimizing unnecessary backtracking.",
+      "when_to_apply": "Each time you discover a new object or furniture, or need to travel between known locations."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Dynamic Goal Decomposition",
+      "principle": "At each decision point, identify the immediate sub‑goal (e.g., locate, acquire, transform, place) that is most directly actionable given your current state and task dependencies. Focus on that sub‑goal until it is accomplished or made impossible by new information, then re‑evaluate the plan.",
+      "when_to_apply": "At the start of a task and whenever the current sub‑goal is completed or invalidated by changes in the environment."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Terminate Only on Verified Success",
+      "principle": "Before issuing the 'done' action, confirm that every goal condition—object types, quantities, required states, and spatial placements—is fully satisfied. If any condition remains unmet, continue taking corrective actions.",
+      "when_to_apply": "Before ending an episode or when you believe the task is complete."
+    }
+  ],
+  "task_specific_skills": {
+    "pick_and_place": [
+      {
+        "skill_id": "pic_001",
+        "title": "Efficient Search",
+        "principle": "Explore systematically without revisiting already-checked containers; prioritize receptacles most likely to hold the target object (e.g., closed containers before open surfaces if object is small).",
+        "when_to_apply": "When the goal object’s location is unseen and unknown."
+      },
+      {
+        "skill_id": "pic_002",
+        "title": "Immediate Pickup",
+        "principle": "If the required object is visible and reachable, pick it up at once—do not move past it or defer collection.",
+        "when_to_apply": "Upon first sight of an unheld, reachable goal object."
+      },
+      {
+        "skill_id": "pic_003",
+        "title": "Transform Before Delivery",
+        "principle": "If the object must undergo a state change (e.g., heated, cooled, cleaned), process it at the nearest suitable appliance immediately after pickup, before heading toward the target receptacle.",
+        "when_to_apply": "Right after picking up an object that requires a state modification."
+      },
+      {
+        "skill_id": "pic_004",
+        "title": "Deliver Immediately",
+        "principle": "When holding the goal object and the target receptacle is known and accessible, navigate directly to it and place the object—do not deviate.",
+        "when_to_apply": "While carrying the goal object and the target destination has been located."
+      }
+    ],
+    "pick_two_obj_and_place": [
+      {
+        "skill_id": "pt2_001",
+        "title": "Complete One Object Cycle Before Starting the Next",
+        "principle": "Operate in two sequential loops: (1) locate and acquire the first target object, then immediately deliver it to the destination receptacle and place it; (2) only after the first is placed, begin searching for the second target object. Never delay placement or attempt to gather both at once.",
+        "when_to_apply": "At the start of any task requiring two identical objects to be placed, and again after placing the first."
+      },
+      {
+        "skill_id": "pt2_002",
+        "title": "Memorize Candidate Locations in the First Pass",
+        "principle": "While searching for the first object, actively remember every location where any instance of the target type is visible. For the second object, navigate directly to the nearest remembered location instead of re-exploring from scratch; avoid revisiting areas already searched and found empty.",
+        "when_to_apply": "During any search phase, especially the initial one, and before restarting search after the first placement."
+      },
+      {
+        "skill_id": "pt2_003",
+        "title": "Verify Exactly Two Distinct Placements Before Done",
+        "principle": "Before issuing the 'done' action, ensure that two different object instances (not the same object moved twice) have been placed onto the specified receptacle. If only one is placed, resume the second cycle; if two are placed, declare success.",
+        "when_to_apply": "Before every 'done' action in a two-object pick‑and‑place task."
+      }
+    ],
+    "look_at_obj_in_light": [
+      {
+        "skill_id": "loo_001",
+        "title": "Navigate to Lamp Surface",
+        "principle": "Identify furniture that commonly supports a desk lamp (desks, side tables, nightstands) and move to one as the primary search area for the target object.",
+        "when_to_apply": "When the task involves looking at an object under a desk lamp."
+      },
+      {
+        "skill_id": "loo_002",
+        "title": "Turn On Lamp",
+        "principle": "Activate the desk lamp upon arrival so the light condition is satisfied before handling any objects.",
+        "when_to_apply": "When you reach a lamp that is currently off."
+      },
+      {
+        "skill_id": "loo_003",
+        "title": "Retrieve Target",
+        "principle": "If the target object is on the illuminated surface, take it. If it is elsewhere, pick it up and bring it to the lit lamp area.",
+        "when_to_apply": "Whenever the target object is located."
+      },
+      {
+        "skill_id": "loo_004",
+        "title": "Systematic Lamp-Area Search",
+        "principle": "Search the lit surface and adjacent containers (drawers, cabinets) once. If the target is not found, relocate to another plausible lamp location without repeating actions or re‑examining empty areas.",
+        "when_to_apply": "When the target hasn’t been found at the current lamp location after turning on the lamp."
+      }
+    ],
+    "clean": [
+      {
+        "skill_id": "cle_001",
+        "title": "Clean-Before-Place Mandate",
+        "principle": "The target must be clean before final placement. Design a path that efficiently incorporates a cleaning step at a water source. When multiple possible water sources exist, prefer one that minimizes total travel from current position to source to final destination.",
+        "when_to_apply": "For any task where the goal condition requires the object to be 'clean' before placing it."
+      },
+      {
+        "skill_id": "cle_002",
+        "title": "Grab When Found",
+        "principle": "When the target object becomes visible, pick it up immediately. Holding the object prevents redundant searches and allows you to proceed directly to the cleaning step.",
+        "when_to_apply": "As soon as the target object is visually confirmed in any location."
+      },
+      {
+        "skill_id": "cle_003",
+        "title": "Optimal Sink Selection",
+        "principle": "After holding the target, go to the nearest reachable water source (sink, basin, faucet) and execute the clean action. If you know of multiple sinks, compare routes to select the most efficient one considering your position and the final placement spot.",
+        "when_to_apply": "Once you have acquired the target object and it needs cleaning."
+      },
+      {
+        "skill_id": "cle_004",
+        "title": "Semantic Search with Containers",
+        "principle": "Start search from locations where objects of this type are commonly found (e.g., countertops for dishware, tables for food). If not found on open surfaces, systematically open and check containers, tracking which have been examined to avoid revisiting them. Avoid aimless roaming.",
+        "when_to_apply": "When the object's whereabouts are unknown and you must locate it."
+      },
+      {
+        "skill_id": "cle_005",
+        "title": "Verify Cleanliness Before Placement",
+        "principle": "After performing the clean action, check the object's state. If it is still not clean, repeat the cleaning action until successful. Only then proceed to the final placement. Do not assume a single attempt sufficed.",
+        "when_to_apply": "Immediately after cleaning the object and before heading to its destination."
+      }
+    ],
+    "heat": [
+      {
+        "skill_id": "hea_001",
+        "title": "Accurate Target Identification",
+        "principle": "Search methodically by opening relevant containers and inspecting all likely surfaces only once. When a candidate is found, verify it exactly matches the goal object name (e.g., 'cup' not 'mug') before picking it up.",
+        "when_to_apply": "During the search and retrieval phase, before picking up any object."
+      },
+      {
+        "skill_id": "hea_002",
+        "title": "Sequenced Task Navigation",
+        "principle": "Maintain this strict order: first locate and pick up the target object, then go to the microwave to heat it, then go directly to the final destination to place it. Do not deviate from this sequence; never approach the microwave or destination without holding the required object.",
+        "when_to_apply": "Whenever planning the next navigation step, from task start until completion."
+      },
+      {
+        "skill_id": "hea_003",
+        "title": "Complete Heating Procedure",
+        "principle": "Upon reaching the microwave with the object, open the door, place the object inside, and activate the heat function. Do not leave the microwave area until the heating action is fully completed.",
+        "when_to_apply": "Immediately after arriving at the microwave with the target object in hand."
+      }
+    ],
+    "cool": [
+      {
+        "skill_id": "coo_001",
+        "title": "Target Object Acquisition",
+        "principle": "Locate the target object through efficient exploration; upon picking up any item, verify it matches the required type. If it does not, immediately drop it and continue the search.",
+        "when_to_apply": "When the task requires an object that is not currently held."
+      },
+      {
+        "skill_id": "coo_002",
+        "title": "Fridge Readiness",
+        "principle": "Open the refrigerator as soon as it is accessible, so that it is ready for cooling without delay once you have the object.",
+        "when_to_apply": "When the fridge is visible and not yet opened, if cooling is required for the task."
+      },
+      {
+        "skill_id": "coo_003",
+        "title": "Cool Before Placing",
+        "principle": "Never place the object at its final destination until after successfully cooling it in the fridge. The cooling step is mandatory.",
+        "when_to_apply": "While holding the correct object, before any placement action."
+      },
+      {
+        "skill_id": "coo_004",
+        "title": "Straight-to-Target Delivery",
+        "principle": "After the cooling action succeeds, go directly to the designated placement location and put the object down, avoiding any unrelated actions or searches.",
+        "when_to_apply": "Immediately after the object has been cooled."
+      }
+    ],
+    "examine": [
+      {
+        "skill_id": "exa_001",
+        "title": "Immediate Co-location Completion",
+        "principle": "If you observe the target object and a desklamp on the same surface (floor, table, etc.), do not move either. Stand near them and use the desklamp to examine the target right there.",
+        "when_to_apply": "Whenever both required objects are visible on the same surface during an examine task."
+      },
+      {
+        "skill_id": "exa_002",
+        "title": "Lock In Discovered Objects",
+        "principle": "When you spot the target object, pick it up immediately, even if you don't know the desklamp's location. When you spot a desklamp, memorize its exact location. This prevents forgetting and backtracking.",
+        "when_to_apply": "The moment any required object (target or desklamp) is first seen."
+      },
+      {
+        "skill_id": "exa_003",
+        "title": "Direct Lamp Interaction",
+        "principle": "Once the target is in your inventory or co-located with a lamp, navigate directly to the nearest remembered desklamp and use it exactly once. Do not toggle or interact with the lamp in advance; avoid unnecessary exploration en route.",
+        "when_to_apply": "After the target object is secured (picked up or co-located with a known lamp)."
+      },
+      {
+        "skill_id": "exa_004",
+        "title": "Systematic Exploration of Unexplored Areas",
+        "principle": "If either the target or desklamp remains unfound, move to new surfaces or containers that you haven't checked yet. Do not re-check places already confirmed empty.",
+        "when_to_apply": "When the location of a required object is unknown and the current area has been fully searched."
+      }
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake_id": "err_001",
+      "description": "Agent repeatedly revisits the same already-searched locations or containers instead of exploring new ones.",
+      "why_it_happens": "The agent lacks an explicit memory or policy for tracking explored areas, so its search strategy degenerates into local loops.",
+      "how_to_avoid": "Maintain an exploration map that records which rooms/containers have been fully inspected and prioritize unvisited or unopened candidates until all reasonable options are exhausted."
+    },
+    {
+      "mistake_id": "err_002",
+      "description": "Agent decides a closed container is empty without opening it, causing missed discoveries of target objects.",
+      "why_it_happens": "Heuristic shortcuts or cost-sensitive policies misjudge the effort of opening containers versus the value of inspecting them.",
+      "how_to_avoid": "Always open and inspect every plausible closed container at least once before ruling it out, using a checklist of unopened containers in the current room."
+    },
+    {
+      "mistake_id": "err_003",
+      "description": "Agent ignores or walks away from target objects that are already visible and reachable.",
+      "why_it_happens": "Perception-action coupling is weak, so detected objects are not tightly linked to action plans that acquire them.",
+      "how_to_avoid": "Embed a perception buffer that immediately queues pick-up actions for visible goal objects and interrupts any ongoing exploratory loop."
+    },
+    {
+      "mistake_id": "err_004",
+      "description": "Agent keeps searching after acquiring enough items because it loses track of how many targets have been collected.",
+      "why_it_happens": "Internal counters for goal progress are missing or not updated reliably when objects are picked up or placed.",
+      "how_to_avoid": "Maintain explicit numerical goals and increment/decrement them on every successful pickup or placement, triggering transition to the next sub-goal when counts are satisfied."
+    },
+    {
+      "mistake_id": "err_005",
+      "description": "Agent fails to deliver a held target object to the known destination, instead continuing to wander.",
+      "why_it_happens": "Planning separates acquisition and delivery but lacks a mechanism to reprioritize delivery once an item is in hand.",
+      "how_to_avoid": "Adopt a hierarchical policy that, upon holding a goal object, immediately switches to a high-priority ‘deliver-to-goal’ subtask before resuming further search."
+    },
+    {
+      "mistake_id": "err_006",
+      "description": "Agent completes spatial placement while skipping required state changes (e.g., cleaning, heating).",
+      "why_it_happens": "The agent conflates object presence with goal satisfaction and omits checking or planning for property predicates like cleanliness or temperature.",
+      "how_to_avoid": "Integrate state precondition checks into the planner so that placement actions are only considered valid after verifying and, if necessary, executing the requisite state-changing operations."
+    },
+    {
+      "mistake_id": "err_007",
+      "description": "Agent repeatedly toggles or examines objects that yield no new information or progress.",
+      "why_it_happens": "Exploration heuristics do not penalize redundant actions, leading to low-utility action loops when uncertain.",
+      "how_to_avoid": "Implement novelty or information gain metrics that discourage repeating identical actions unless the environment state has changed since the last attempt."
+    },
+    {
+      "mistake_id": "err_008",
+      "description": "Agent mishandles spatial relations (e.g., ‘under’, ‘inside’, ‘behind’) by inspecting only obvious surfaces and ignoring less visible sub-locations.",
+      "why_it_happens": "Parsing of relational language is not coupled with a comprehensive enumeration of environment affordances that can realize those relations.",
+      "how_to_avoid": "During task parsing, generate explicit search targets for all sub-locations associated with the reference object (drawers, shelves, underside) and iterate through them systematically."
+    },
+    {
+      "mistake_id": "err_009",
+      "description": "Agent forgets which object it is holding, leading to unnecessary pickups, drops, or misplacements.",
+      "why_it_happens": "The internal state does not persistently encode the identity and status of the carried object across time steps.",
+      "how_to_avoid": "Maintain a dedicated ‘hand inventory’ structure updated after every pickup/drop, and consult it before issuing navigation or interaction commands."
+    },
+    {
+      "mistake_id": "err_010",
+      "description": "Agent executes inefficient action sequences by searching for each required object serially rather than batching placements or leveraging proximity.",
+      "why_it_happens": "Lack of multi-goal planning causes the agent to treat each instance independently, resulting in unnecessary travel and toggling.",
+      "how_to_avoid": "Use planning algorithms that group similar subtasks, allowing the agent to collect all required objects in one pass before performing consolidated delivery or transformation steps."
+    },
+    {
+      "mistake_id": "err_011",
+      "description": "Agent prematurely terminates or stalls without having observed any candidate objects that satisfy the goal.",
+      "why_it_happens": "Termination criteria rely on step limits or subjective confidence rather than verified goal completion signals.",
+      "how_to_avoid": "Only allow ‘done’ actions when explicit goal predicates are met; otherwise, continue targeted exploration of remaining unvisited rooms and containers."
+    }
+  ]
+}

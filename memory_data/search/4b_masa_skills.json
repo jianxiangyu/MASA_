@@ -1,0 +1,188 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Mandatory Search First",
+      "principle": "Never output an <answer> without first issuing a <search> and reading at least one relevant snippet. If you haven't searched, you don't have evidence. BEFORE you even think of answering, you must search.",
+      "when_to_apply": "Always – after reading the question, your very next action must be a <search> query. This rule overrides all other heuristics."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Direct Attribute Query",
+      "principle": "Write the query as: entity_name + attribute, with no filler words. Example: “Albert Einstein birthplace” not “Where was Einstein born?”. Use the exact name from the question, then the missing property.",
+      "when_to_apply": "When starting a search for a fact (date, number, location, name) attached to a known entity."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Never Repeat a Failed Query",
+      "principle": "If the top 3 snippets of a search contain no direct answer, DO NOT run the same query again. Instead, create a substantially different query: add a year, a profession, a synonym, or an alternative name. If you repeat a query exactly, you will get the same empty results and fail.",
+      "when_to_apply": "Immediately after reading results that do not contain the answer. Compare the new query to the last one; if they are identical, change it further."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Copy Answer Verbatim",
+      "principle": "When an authoritative snippet gives you a fact, extract the answer exactly as it appears: same spelling, punctuation, digits (e.g., “4,500” not “4500”), and no extra words. Your final answer must be a perfect string match to the source evidence.",
+      "when_to_apply": "When assembling the <answer> from a retrieved snippet – do not rephrase, paraphrase, or correct any formatting."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Disambiguate Like a Human",
+      "principle": "If an entity name could refer to multiple things (e.g., “Michael Jordan” or “Java”), immediately add a clarifier to the search: occupation, nationality, year, or type (“actor”, “2003”, “programming language”). Check the snippet to confirm you are on the right referent before accepting numbers.",
+      "when_to_apply": "When the question mentions a name that is common or you see mixed results (different people) in the first search."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Forced Two‑Step Decomposition",
+      "principle": "If the question asks for an attribute of an entity that is only described through another entity (e.g., “in the same series as X”, “where Y studied”, “the performer of”), you MUST use two separate searches. Step 1: find the intermediate entity. Step 2: search for that entity’s attribute. Never try to answer with a single complex query.",
+      "when_to_apply": "Whenever the question contains phrases like 'where ... was educated', 'who starred in', 'the creator of', 'the company that owns', or any relationship that requires bridging."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Side‑by‑Side Comparison",
+      "principle": "For comparison questions (higher, earlier, more, etc.), retrieve the relevant numeric or date value for each option using separate searches. Write down or mentally list each value, then compare using simple math or date order. Do not guess based on rough memory of which is bigger.",
+      "when_to_apply": "Any question that asks to compare two or more entities on a quantitative attribute (year, count, length, etc.)."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Temporal Qualifier Injection",
+      "principle": "If the question asks for the “latest”, “current”, “next”, or “newest” information, always add the present month/year or the word “latest” to the query (e.g., “Windows latest version 2025”). Discard outdated results that don't match the most recent date.",
+      "when_to_apply": "Questions that explicitly or implicitly ask for the most recent instance of a fact."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Quick Corroboration for Suspicious Answers",
+      "principle": "If the only answer you see appears unlikely or contradicts common sense, run a second brief search with a slightly different phrasing (e.g., add “official” or change attribute word order) to confirm before answering. One snippet is enough if it looks solid; two are better when in doubt.",
+      "when_to_apply": "When the answer is a very exact number, a disputed date, or seems too high/low – sanity check before finalizing."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Exit Only on Explicit Evidence",
+      "principle": "After each search‑and‑read cycle, check: Is there a direct, complete answer visible in the snippet? If yes, and it’s not contradicted by other snippets, stop searching and answer. If no, you MUST modify the query and try again. You must not answer with an incomplete or inferred fact.",
+      "when_to_apply": "After every read step – decide whether the answer is fully extracted or whether a new search is needed."
+    }
+  ],
+  "task_specific_skills": {
+    "direct_retrieval": [
+      {
+        "skill_id": "direct_retrieval_001",
+        "title": "Disambiguate Core Entity Before Main Search",
+        "principle": "When the question mentions a person, film, book, place, or work with a common name, immediately decide what qualifiers are needed (year, director, full name, medium, type). If you already know them, add them directly. If not, perform a quick preliminary search to obtain the missing context, then use the qualified entity in the main query. For example, if the question is \"Who produced the film Fling?\", do not search just \"Fling producer\". Instead, first search: <search>\"Fling\" film release year</search> to find the year (e.g., 2008). Then search: <search>\"Fling\" 2008 film producer</search>. If the initial main search still returns information about the wrong entity, immediately go back and add more disambiguating details (e.g., director, actors) until you land on the correct entity.",
+        "when_to_apply": "When the core entity is a short name or title that could refer to multiple things (e.g., common surnames, single-word titles, ambiguous place names)."
+      },
+      {
+        "skill_id": "direct_retrieval_002",
+        "title": "Two‑Step Decomposition for Implicit Definitions",
+        "principle": "When the question asks for a fact about an entity that is not directly named but defined by a condition (\"the X such that Y\"), you must first identify the entity by searching for the condition alone, then perform a second search for the desired fact. Never search the whole sentence at once. Example: question \"What is the capital of the country that has a flag with a red maple leaf?\" -> first search: <search>flag red maple leaf country</search> to get \"Canada\". Then search: <search>capital of Canada</search>. Another example: \"What state has a capital that is also the name of a bird?\" -> first search: <search>capital city bird name</search> or <search>state capital named after a bird</search> to find the city (e.g., \"Phoenix\"), then search: <search>Phoenix capital of what state</search>. If the initial monolithic query fails to return a direct answer, decompose it immediately.",
+        "when_to_apply": "When the question embeds a defining condition that must be resolved first (e.g., \"the person who …\", \"the film where …\", \"the storm that was the fifth hurricane …\")."
+      },
+      {
+        "skill_id": "direct_retrieval_003",
+        "title": "Parallel Retrieval for Comparisons",
+        "principle": "For comparison questions (\"who is younger/taller/older/richer …\"), you must find the relevant attribute for each entity, then compare the numeric or ordinal values. Do two separate, simple searches using the pattern \"[Entity] [attribute]\" where the attribute is the measurable quantity (birth year, height, net worth, population). Examples: \"Who is younger, Leonardo DiCaprio or Brad Pitt?\" -> <search>Leonardo DiCaprio birth year</search> and <search>Brad Pitt birth year</search>. Compare years: later year = younger. \"Who is taller, Lionel Messi or Cristiano Ronaldo?\" -> <search>Lionel Messi height</search> and <search>Cristiano Ronaldo height</search>, compare in cm. The final answer must be the name of the entity that satisfies the condition, not a comparative adjective or full sentence.",
+        "when_to_apply": "When the question asks to compare two (or more) entities on a measurable dimension, or when it asks for a superlative among listed entities (e.g., \"Which city is the largest …\")."
+      },
+      {
+        "skill_id": "direct_retrieval_004",
+        "title": "Precision Queries with Quotation Marks and Time Anchors",
+        "principle": "For song titles, book titles, direct quotes, episode names, and any distinctive multi‑word phrase, always wrap the phrase in double quotes to force an exact match. For time‑sensitive facts such as \"current\", \"latest\", \"most recent\", or future events, embed the required year or the word \"current\" directly in the query to avoid outdated results. Examples: \"Who sang 'Rolling in the Deep'?\" -> <search>\"Rolling in the Deep\" singer</search>. \"Who is the current CEO of Apple?\" -> <search>Apple CEO 2025</search> (use the current year if known; otherwise use \"current Apple CEO\"). \"What year was the album 'Thriller' released?\" -> <search>\"Thriller\" album release year</search>. Combining quotes with time markers is especially powerful for direct‑retrieval tasks.",
+        "when_to_apply": "When the question contains a proper noun phrase, a quote, or a time‑dependent fact."
+      },
+      {
+        "skill_id": "direct_retrieval_005",
+        "title": "Strict Fact Extraction and Exact‑Answer Output",
+        "principle": "Once a reliable snippet provides the answer, extract the exact string that is the factual answer—do not paraphrase, add commentary, or guess. The final output must be only the required piece of information inside <answer></answer> tags. For simple factoids, that is a single name, date, or number. For comparisons, it is the name of the winning entity. If sources disagree, search further using alternative queries (e.g., add a reputable site name, check an official page). Never output an answer until you have explicit textual support. Example: if the question is \"Who directed 'Inception'?\" and you find a sentence \"Directed by Christopher Nolan\", your answer is <answer>Christopher Nolan</answer>. No extra words.",
+        "when_to_apply": "Before finalizing any answer for a direct‑retrieval question."
+      }
+    ],
+    "multi_hop_reasoning": [
+      {
+        "skill_id": "multi_hop_reasoning_001",
+        "title": "Trigger-Driven Decomposition: Break Down Nested Questions",
+        "principle": "Before any search, check the question for these multi-hop structures: \"... of [film/book/TV/...]\", \"where was the ... of ... born\", \"what award did the director of ... win\", \"why did the author of ... die\", etc. If present, treat the question as multi‑hop and write an ordered list of sub‑questions that must be answered. Example: \"Where was the director of Titanic born?\" → Sub‑Q1: Who directed the movie Titanic? Sub‑Q2: Where was that person born? Then search for Sub‑Q1 with a precise query like `<search>Titanic film director</search>`. NEVER search the whole original question as a single query.",
+        "when_to_apply": "Whenever the question contains a nested relationship (e.g., asking about an attribute of something that itself is an attribute of another entity). Assume any sentence with a possessive or prepositional phrase linking two facts is multi‑hop."
+      },
+      {
+        "skill_id": "multi_hop_reasoning_002",
+        "title": "Mandatory Disambiguation Checkpoint After Every Entity Search",
+        "principle": "After the very first search for a sub‑question (and after any later search that returns an entity name), stop and examine the snippets. If the target entity (film, book, person, place) appears in multiple distinct interpretations (e.g., different films with the same title, people with the same name), you MUST list the candidates and disambiguate before moving on. Use a descriptor from the question (medium: film/book/TV, year, country, creator name) to refine the query. Example: search `Titanic film director` returns only one film; fine. But for \"Black and White\", results might mention the 1998 film, 2008 film, etc. If the question says \"2002 film\", refine: `<search>Black and White 2002 film director</search>`. Repeat until all snippets clearly reference a single unique entity. This applies to every hop where a name could be ambiguous.",
+        "when_to_apply": "After any search that is supposed to identify a specific entity. Always assume names can be ambiguous until proven otherwise."
+      },
+      {
+        "skill_id": "multi_hop_reasoning_003",
+        "title": "Sequential Hop Checklist: Do Not Skip a Step",
+        "principle": "Treat the sub‑question list as a strict checklist. After you search for a sub‑question and find a confirmed answer, immediately move to the next sub‑question. Do not answer the original question until every sub‑question is resolved. Mentally check: answered Q1? Move to Q2. Only when the last sub‑question is answered, provide the final answer. For instance, after finding \"James Cameron\" as director, you must still search `<search>James Cameron birthplace</search>` before answering. No guessing, no shortcuts.",
+        "when_to_apply": "On every multi‑hop question once you have decomposed it into a numbered list."
+      },
+      {
+        "skill_id": "multi_hop_reasoning_004",
+        "title": "Exact Final Answer Extraction",
+        "principle": "The answer must be the exact factual piece asked for: a name, place, date, award, etc. No extra words like \"He was born in ...\" or \"The answer is ...\". Use `<answer>` with the raw value. For birthplace: \"Kapuskasing, Canada\". For award: \"Academy Award for Best Director\". For a comparison or quantitative answer, give the requested format (e.g., \"2002\" for a year). Ensure you are answering the original question's final demand, not an intermediate fact.",
+        "when_to_apply": "Always when producing the final answer, especially after completing all hops."
+      }
+    ],
+    "entity_attribute_lookup": [
+      {
+        "skill_id": "entity_attribute_lookup_001",
+        "title": "Direct Entity-Attribute Search",
+        "principle": "When the entity is directly and unambiguously named in the question, craft the first search query by joining the exact entity name (enclosed in quotes if multi-word) with the attribute keyword (birthplace, occupation, height, founding date, etc.). Use infobox-friendly terms: 'born', 'founded', 'height', etc. Example: <search>\"Marie Curie\" occupation</search> or <search>\"Eiffel Tower\" height</search>. This targets pages that contain a structured fact box, returning the answer directly.",
+        "when_to_apply": "The question provides the full, unambiguous name of the entity (e.g., 'Albert Einstein', 'Microsoft', 'The Mona Lisa') without any relational descriptors or indirect references."
+      },
+      {
+        "skill_id": "entity_attribute_lookup_002",
+        "title": "Ambiguous Entity Disambiguation",
+        "principle": "If the entity name is common or shared, insert known disambiguators (profession, nationality, birth year, notable works) into the search query to narrow results. Example: for a composer named John Williams, search <search>\"John Williams\" composer birthplace</search>. Then inspect the returned snippet to confirm the correct entity (e.g., check birth year). If still uncertain, cross-check two independent sources (e.g., Wikipedia and Britannica).",
+        "when_to_apply": "The entity name is widely shared (e.g., 'Paris', 'John Smith') or the first search returns results mixing different individuals/things."
+      },
+      {
+        "skill_id": "entity_attribute_lookup_003",
+        "title": "Relationship-Based Entity Resolution (Multi‑Hop)",
+        "principle": "When the entity is described via a relationship (possessive, relative clause, 'creator of', 'father of', 'owner of') instead of directly named, perform two sequential searches: first identify the hidden entity, then extract its attribute. Step 1: search the relationship phrase using natural language, e.g., <search>creator of The Dogwoman telemovies</search>. Step 2: once the entity name appears in the results, use that name in a second direct entity‑attribute search, e.g., <search>\"John Doe\" birth year</search>. Extract the answer from the second search only. This systematic decomposition prevents guessing the wrong entity.",
+        "when_to_apply": "The question does not name the target directly; instead it uses a possessive ('father of Alexander Hamilton'), a descriptive phrase ('the artist who painted the Sistine Chapel ceiling'), or any indirect identification."
+      },
+      {
+        "skill_id": "entity_attribute_lookup_004",
+        "title": "Attribute Type Validation",
+        "principle": "After retrieving a candidate answer, verify its semantic type matches the interrogative word: 'where' → a location (city, country, stadium), 'when' → a date/year, 'who' → a person name, 'what' → an object/role/event. If the answer type mismatches (e.g., a date for a 'where' question), the search likely misinterpreted the attribute. Reformulate the query by explicitly combining entity name + the correct attribute word (e.g., 'birthplace' instead of 'born') and re‑search. Example: For 'Where was the 2014 Belk Bowl played?' and the result shows the event name, search again with <search>\"2014 Belk Bowl\" location</search> and choose the stadium or city from the infobox.",
+        "when_to_apply": "Immediately after obtaining a plausible answer from search results, before finalising."
+      },
+      {
+        "skill_id": "entity_attribute_lookup_005",
+        "title": "Minimalist Answer Extraction",
+        "principle": "The final answer must be exactly the requested attribute value alone, with no extra text. For location attributes, prefer the most concise geographical unit that directly answers the question: city/town for 'where born/died', country for 'nationality'. Avoid full hierarchical strings: if a source says 'St. Mary's Hospital, London', answer 'London'; if it says 'Mauban, Quezon, Philippines', answer 'Mauban, Quezon' (city and province). Strip unnecessary prefixes like 'Palace of' – e.g., 'Westminster' not 'Palace of Westminster' when asking 'Where is the UK Parliament?'. Copy the exact phrasing from an authoritative infobox (e.g., Wikipedia) but truncate to the essential geographical name. For non‑location attributes (dates, occupations, heights) output the single numeric or word value exactly as found, e.g., 'architect', '14 April 1912', '1.83 m'. Place the answer inside <answer> tags without any extra commentary.",
+        "when_to_apply": "After attribute type is confirmed and you have the verified value, when constructing the final output."
+      }
+    ],
+    "comparison": [
+      {
+        "skill_id": "comp_decompose_dependency",
+        "title": "Resolve Indirect Attributes: Find the Intermediary First",
+        "principle": "Many comparisons ask about an attribute that belongs to another entity, not the one named. If the attribute is a property of a related entity (e.g., 'the director's birth year' of a film, 'the number of members' of a band, 'the author's nationality'), you MUST first identify that related entity before searching for the attribute. Step 1: Search for the link. Example: For 'Which film has an earlier birth date, Pusher or Pusher II?', the attribute is birth date of the director. Search '[Film] director' to get the director's name. Step 2: Only then search for the attribute on that director: '[Director] birth date'. For countable attributes like band members, search '[Band] members' or '[Band] lineup' to get a list you can count. Never search for the final attribute directly from the original entity. Warning: Do not use the original entity name with the final attribute (e.g., 'Pusher birth date').",
+        "when_to_apply": "At the very start of every comparison, before any search, ask: 'Does the attribute belong directly to this entity, or to something it has/creates/directs?' If indirect, perform the intermediary search first."
+      },
+      {
+        "skill_id": "comp_disambiguate",
+        "title": "Strict Entity Disambiguation Before Any Attribute Extraction",
+        "principle": "Comparison questions fail if you pick the wrong person, film, or group. Before extracting any attribute, confirm the entity matches the question’s description exactly. Include context in your search query to avoid confusion: for media, add the year and type (e.g., 'Traces Of An Amorous Life 1993 film' not the documentary); for people, add their role (e.g., 'Jons Und Erdme director' not a politician). After getting a snippet, check the role matches the question (director vs producer, actor vs writer, etc.). If unsure, refine the query with more specific terms. Example: 'Lies My Father Told Me director' might return a producer; refine to 'Lies My Father Told Me 1975 film director' to get the correct director. Only after verifying identity, proceed to attribute extraction.",
+        "when_to_apply": "Every time you search for an entity's name, before accepting it as the target of comparison."
+      },
+      {
+        "skill_id": "comp_extract_attribute",
+        "title": "Precise Attribute Extraction: Use Dedicated Attribute‑Only Queries",
+        "principle": "Once the entity is known, launch a narrow search exactly for the attribute and, if applicable, the unit. Pattern: '[Entity name] [attribute] [unit or format if needed]'. For dates: '[Person] birth date' or '[Film] release year'. For heights: 'Mount Everest height in meters'. For countable items: 'The Beatles members list'. For certifications: '[Album] certifications platinum'. If the snippet does not show a clear number or date, refine by adding a profession, a year, or a specification (e.g., 'John Smith actor birth date' not just 'John Smith birth date'). For countable attributes, ensure the snippet contains a list or a total number; if not, try 'how many members in [group]'. Never rely on an entity’s general page – always get the attribute value from a targeted search.",
+        "when_to_apply": "Immediately after confirming the correct entity, and before comparing any values."
+      },
+      {
+        "skill_id": "comp_normalize_compare",
+        "title": "Normalize to a Single Format and Perform Numerical Comparison",
+        "principle": "Convert all attribute values to the same representation before comparing. Dates: transform to YYYY (or YYYY-MM-DD if day matters). Months: 'March' → 3. Numbers with different units: convert all heights to meters, populations to raw numbers, areas to km². For labels like 'gold'/'platinum', treat platinum > gold; if counting, use numerical value. Ordinal strings ('first', 'second', 'third') → numbers (1,2,3). After normalization, apply the comparison operator: earlier = smallest date (oldest year), later = largest date; larger/taller/more = maximum number; smaller/less = minimum number. If more than two entities, compare all and pick the one satisfying the superlative. Do not compare raw strings.",
+        "when_to_apply": "After you have collected the attribute for every entity being compared, right before writing the final answer."
+      },
+      {
+        "skill_id": "comp_answer_format",
+        "title": "Answer with the Exact Winning Entity Name",
+        "principle": "The final answer must be the name of the entity that wins the comparison, exactly as it would be recognized (preferably as it appears in the question, but use the disambiguated form if necessary). For example: 'The Beatles', 'Pusher', 'Mount Everest'. Do not include explanations, the attribute value, or the comparison word. If the comparison involves multiple 'which is earlier', output the single entity name. Ensure the answer matches the question’s framing (e.g., 'which band', so just 'The Beatles'). Use plain text inside <answer>...</answer>.",
+        "when_to_apply": "When providing the final answer."
+      }
+    ]
+  }
+}

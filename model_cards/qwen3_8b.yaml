@@ -1,0 +1,23 @@
+# Model Card: Qwen3-8B
+# Source: https://huggingface.co/Qwen/Qwen3-8B
+
+family: "Qwen3"
+variant: "8B"
+parameter_count: "8B"
+release_date: "2025-04"
+
+architecture: "dense-transformer"
+num_layers: 36
+hidden_size: 4096
+num_attention_heads: 32
+num_kv_heads: 8
+context_window: 32768
+vocab_size: 151936
+
+base_or_instruct: "instruct"
+alignment_method: "SFT + DPO + GRPO"
+training_data_size: "36T tokens"
+multilingual: true
+
+strengths: "balanced reasoning and efficiency, strong instruction following, code and math, thinking mode with extended reasoning"
+weaknesses: "may over-rely on internal knowledge, verbose skills can interfere with natural reasoning patterns"

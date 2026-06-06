@@ -1,0 +1,23 @@
+# Model Card: Qwen3-4B
+# Source: https://huggingface.co/Qwen/Qwen3-4B
+
+family: "Qwen3"
+variant: "4B"
+parameter_count: "4B"
+release_date: "2025-04"
+
+architecture: "dense-transformer"
+num_layers: 36
+hidden_size: 2560
+num_attention_heads: 32
+num_kv_heads: 8
+context_window: 32768
+vocab_size: 151936
+
+base_or_instruct: "instruct"
+alignment_method: "SFT + DPO + GRPO"
+training_data_size: "36T tokens"
+multilingual: true
+
+strengths: "math, code generation, instruction following, multilingual, tool use, thinking mode support"
+weaknesses: "limited reasoning depth due to small parameter count, may struggle with complex multi-step planning"

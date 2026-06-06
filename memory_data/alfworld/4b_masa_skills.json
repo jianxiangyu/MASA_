@@ -1,0 +1,195 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Use MOVE to Place Objects",
+      "principle": "To place an object at a destination, use 'move <object> to <destination>'. Example: 'move mug 1 to sidetable 1', 'move cloth 1 to cabinet 1'. This is the ONLY placement command. Do NOT use 'put', 'place', or 'drop' — those will fail with 'Nothing happens'.",
+      "when_to_apply": "Every time you need to place or deliver an object."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Never Repeat a Failed Action",
+      "principle": "If an action returns 'Nothing happens', it failed. Never try the exact same action again. Try a different action instead. If you already examined something, don't examine it again. If you already tried to move to a place and it said 'Nothing happens', try a different destination.",
+      "when_to_apply": "After any action that returns 'Nothing happens' or doesn't change the situation."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Check Admissible Actions When Stuck",
+      "principle": "The environment shows you a list of admissible actions. If you're unsure what to do, pick an action from that list. Actions NOT in the list will usually fail. Pay special attention to 'move', 'take', 'clean', 'heat', 'cool', and 'use' actions in the list.",
+      "when_to_apply": "When an action fails or when you don't know what to do next."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Follow This Fixed Order for Every Task",
+      "principle": "Always: (1) Find the target object by visiting locations in order. (2) 'take' it. (3) If clean/heat/cool is needed, do it. (4) 'go to <destination>'. (5) 'move <object> to <destination>'. Never skip step 5.",
+      "when_to_apply": "At the start of every task."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Search Systematically: Never Revisit",
+      "principle": "Visit locations in numerical order (cabinet 1, cabinet 2, cabinet 3...). Open closed containers with 'open'. If the object is not there, go to the next number. NEVER return to a location you already checked.",
+      "when_to_apply": "When searching for an object."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Take Object Immediately When Found",
+      "principle": "When you see the target object listed in an observation, immediately use 'take <object> from <location>'. Do not examine it first. Do not look first. Take it right away.",
+      "when_to_apply": "Whenever the target object appears in the environment observation."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Open Containers Before Looking Inside",
+      "principle": "Closed containers (cabinets, drawers) must be opened with 'open <container>' before you can see or take anything inside.",
+      "when_to_apply": "Every time you go to a new container."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Once Holding the Object, Deliver It Now",
+      "principle": "If you are holding the correct object, deliver it immediately: 'go to <destination>' then 'move <object> to <destination>'. Do not search for anything else. Do not examine. Do not look. Just deliver.",
+      "when_to_apply": "Whenever you are holding the object the task asks for."
+    }
+  ],
+  "task_specific_skills": {
+    "pick_and_place": [
+      {
+        "skill_id": "pic_001",
+        "title": "Simple Pick and Place",
+        "principle": "For 'put X in/on Y' tasks: (1) Search for X. (2) 'take X from <location>'. (3) 'go to Y'. (4) 'move X to Y'. Four steps total. Nothing else needed.",
+        "when_to_apply": "Any task that says 'put some/a <object> in/on <destination>'."
+      },
+      {
+        "skill_id": "pic_002",
+        "title": "Move Command Uses Full Object Name",
+        "principle": "Always include the number: 'move mug 1 to countertop 1', not 'move mug to countertop'. Format: move <name> <number> to <receptacle> <number>.",
+        "when_to_apply": "Every time you use the move command."
+      },
+      {
+        "skill_id": "pic_003",
+        "title": "Match Object Name Exactly",
+        "principle": "Read the task carefully and match the EXACT object name. 'pencil' is NOT 'pen'. 'soapbottle' is NOT 'spraybottle'. 'creditcard' is NOT 'remotecontrol'. If you don't see the exact object mentioned in the task, keep searching other locations.",
+        "when_to_apply": "When deciding which object to pick up."
+      }
+    ],
+    "pick_two_obj_and_place": [
+      {
+        "skill_id": "pt2_001",
+        "title": "One at a Time, Full Delivery Cycle",
+        "principle": "You can only carry one object. Do this twice: (A) Find object → 'take' → 'go to destination' → 'move <object> to <destination>'. (B) Find second object → 'take' → 'go to destination' → 'move <object> to <destination>'. Never pick up the second before placing the first.",
+        "when_to_apply": "Any task with 'put two'."
+      },
+      {
+        "skill_id": "pt2_002",
+        "title": "Remember Extra Object Locations",
+        "principle": "While searching for the first object, if you see another instance of the same type, remember where it is. After delivering the first, go directly there for the second.",
+        "when_to_apply": "During search when you spot multiple target objects."
+      },
+      {
+        "skill_id": "pt2_003",
+        "title": "Match Object Name Exactly for Both",
+        "principle": "Both objects must match the EXACT name in the task. 'pencil' is NOT 'pen'. 'soapbottle' is NOT 'spraybottle'. If you see a similar but different object, skip it and keep searching.",
+        "when_to_apply": "When deciding which objects to pick up."
+      }
+    ],
+    "look_at_obj_in_light": [
+      {
+        "skill_id": "loo_001",
+        "title": "Examine = Find Object + Use Desklamp",
+        "principle": "For 'examine/look at X' tasks: (1) Find and take the target object. (2) Go to where a desklamp is (desk, sidetable, dresser). (3) 'use desklamp 1'. That completes the task. You do NOT need to put the object down.",
+        "when_to_apply": "Any task mentioning 'examine', 'look at', or 'lamp'."
+      },
+      {
+        "skill_id": "loo_002",
+        "title": "Desklamps Are on Desks and Sidetables",
+        "principle": "Desklamps are found on: desk 1, sidetable 1, sidetable 2, dresser 1. After grabbing the target object, go to one of these and 'use desklamp 1'.",
+        "when_to_apply": "When you need to find a desklamp."
+      }
+    ],
+    "clean": [
+      {
+        "skill_id": "cle_001",
+        "title": "Clean Task Exact Sequence",
+        "principle": "For 'put a clean X in/on Y' tasks: (1) Find and 'take' the object. (2) 'go to sinkbasin 1'. (3) 'clean <object> with sinkbasin 1'. (4) 'go to <destination>'. (5) 'move <object> to <destination>'. You MUST 'go to sinkbasin 1' BEFORE cleaning — the command only works when you are at the sinkbasin.",
+        "when_to_apply": "Any task saying 'clean' or 'put a clean <object>'."
+      },
+      {
+        "skill_id": "cle_002",
+        "title": "After Clean, Go Straight to Destination and Move",
+        "principle": "After 'clean X with sinkbasin 1', your next two actions are: 'go to <destination>', then 'move <object> to <destination>'. Do not examine. Do not look. Do not go anywhere else.",
+        "when_to_apply": "Immediately after the clean action."
+      },
+      {
+        "skill_id": "cle_003",
+        "title": "Match Object Name Exactly",
+        "principle": "If task says 'cloth', find 'cloth' (not 'towel'). If task says 'fork', find 'fork' (not 'knife'). Match the exact name from the task description.",
+        "when_to_apply": "When deciding which object to pick up."
+      }
+    ],
+    "heat": [
+      {
+        "skill_id": "hea_001",
+        "title": "Heat Task Exact Sequence",
+        "principle": "For 'put a hot X in/on Y' tasks: (1) Find and 'take' the object. (2) 'go to microwave 1'. (3) 'heat <object> with microwave 1'. (4) 'go to <destination>'. (5) 'move <object> to <destination>'. You MUST do 'go to microwave 1' FIRST — if you try 'heat' without being at the microwave, it returns 'Nothing happens'. You do NOT need to open/close the microwave.",
+        "when_to_apply": "Any task saying 'heat' or 'put a hot <object>'."
+      },
+      {
+        "skill_id": "hea_002",
+        "title": "Must Be AT Microwave to Heat",
+        "principle": "The 'heat X with microwave 1' command ONLY works when you are at microwave 1. Always do 'go to microwave 1' first, then 'heat X with microwave 1'. If heat returns 'Nothing happens', check: (a) Are you at microwave 1? If not, 'go to microwave 1' first. (b) Are you holding the object? If not, you need to 'take' it first.",
+        "when_to_apply": "When you need to heat an object."
+      },
+      {
+        "skill_id": "hea_003",
+        "title": "After Heating, Deliver Immediately",
+        "principle": "After 'heat X with microwave 1' succeeds, immediately do: 'go to <destination>' then 'move X to <destination>'. No detours, no examining, no inventory checks.",
+        "when_to_apply": "After heating succeeds."
+      }
+    ],
+    "cool": [
+      {
+        "skill_id": "coo_001",
+        "title": "Cool Task Exact Sequence",
+        "principle": "For 'put a cool X in/on Y' or 'cool some X and put it in Y' tasks: (1) Find and 'take' the correct object X. (2) 'go to fridge 1'. (3) 'cool <object> with fridge 1'. (4) 'go to <destination>'. (5) 'move <object> to <destination>'. You MUST do 'go to fridge 1' FIRST — if you try 'cool' without being at the fridge, it returns 'Nothing happens'.",
+        "when_to_apply": "Any task saying 'cool' or 'put a cool <object>'."
+      },
+      {
+        "skill_id": "coo_002",
+        "title": "Must Be AT Fridge to Cool",
+        "principle": "The 'cool X with fridge 1' command ONLY works when you are at fridge 1. Always do 'go to fridge 1' first, then 'cool X with fridge 1'. If cool returns 'Nothing happens', check: (a) Are you at fridge 1? If not, 'go to fridge 1' first. (b) Are you holding the object? If not, you need to 'take' it first.",
+        "when_to_apply": "When you need to cool an object."
+      },
+      {
+        "skill_id": "coo_003",
+        "title": "After Cooling, Deliver Immediately",
+        "principle": "After 'cool X with fridge 1' succeeds, immediately do: 'go to <destination>' then 'move X to <destination>'. No detours, no examining, no inventory checks.",
+        "when_to_apply": "After cooling succeeds."
+      }
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake_id": "err_001",
+      "description": "Using 'put X in/on Y' to place objects.",
+      "correction": "WRONG: 'put mug 1 in/on sidetable 1'. RIGHT: 'move mug 1 to sidetable 1'. The 'put' command does NOT work in this environment. Always use 'move X to Y'."
+    },
+    {
+      "mistake_id": "err_002",
+      "description": "Opening/closing microwave or fridge to heat/cool objects.",
+      "correction": "You do NOT need open/close. Just use 'heat X with microwave 1' or 'cool X with fridge 1' directly while holding the object. It's a single command."
+    },
+    {
+      "mistake_id": "err_003",
+      "description": "Repeating the same failed action multiple times.",
+      "correction": "If 'Nothing happens', the action failed. Never repeat it. Try a different action from the admissible actions list."
+    },
+    {
+      "mistake_id": "err_004",
+      "description": "Examining or looking around instead of delivering the object.",
+      "correction": "Once holding the correct object, go to destination and 'move' it there. Do not examine, inventory, or look."
+    },
+    {
+      "mistake_id": "err_005",
+      "description": "Going back to already-checked locations.",
+      "correction": "Always go to the NEXT numbered location. Never revisit."
+    }
+  ]
+}

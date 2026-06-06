@@ -1,0 +1,23 @@
+# Model Card: Qwen3-32B
+# Source: https://huggingface.co/Qwen/Qwen3-32B
+
+family: "Qwen3"
+variant: "32B"
+parameter_count: "32B"
+release_date: "2025-04"
+
+architecture: "dense-transformer"
+num_layers: 64
+hidden_size: 5120
+num_attention_heads: 40
+num_kv_heads: 8
+context_window: 32768
+vocab_size: 151936
+
+base_or_instruct: "instruct"
+alignment_method: "SFT + DPO + GRPO"
+training_data_size: "36T tokens"
+multilingual: true
+
+strengths: "state-of-the-art reasoning among open-weight models, complex multi-step planning, nuanced instruction following, strong agentic capabilities, thinking mode"
+weaknesses: "may overthink simple tasks, detailed step-by-step instructions can be redundant or constraining"

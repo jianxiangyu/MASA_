@@ -1,0 +1,248 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Ultra-Short First Search (3-5 Words)",
+      "principle": "Your FIRST search must be 3-5 words only: product type + 1 key attribute (color or gender). NEVER include price, fabric, fit, wash method, or size in the search query. Example: 'men's dress shirts green' or 'women's running shoes black'. These extra words cause zero results.",
+      "when_to_apply": "Before typing your very first search query."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Never Repeat Same Search",
+      "principle": "Before every search, recall what you already searched. If you are about to type the same query, you MUST change it: remove a word or try a synonym. Repeating identical searches wastes steps.",
+      "when_to_apply": "Before every search action."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Simplify on Poor Results (Remove Words)",
+      "principle": "If results are irrelevant, REMOVE words from query to broaden results. Never add more words. Go from 5 words down to 3 words. If color is unusual, drop it and search just the product type.",
+      "when_to_apply": "After any search returns obviously wrong product types."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Only Click Matching Product Category",
+      "principle": "On the results page, READ product titles. Only click items whose title contains your exact product type (e.g., 'dress shirt' not 'T-shirt'). If no title matches, go back and search differently—do NOT click random items.",
+      "when_to_apply": "On every search results page before clicking any product."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Select ALL Variants Before Buying",
+      "principle": "Before clicking 'Buy Now', you MUST explicitly select: (1) correct color variant matching task EXACTLY, and (2) correct size matching task EXACTLY. If either required option is not available in the list, leave this product immediately.",
+      "when_to_apply": "On every product page, after confirming product type matches."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Match Color Variant EXACTLY",
+      "principle": "Select the color whose name exactly matches the task. 'navy blue' ≠ 'blue'. 'patina green' must be selected as 'patina green', not 'green'. If the exact color name is not in the options, this product cannot work—leave immediately.",
+      "when_to_apply": "When choosing color on any product page."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Check Price After Variant Selection",
+      "principle": "After selecting exact color and size, check the displayed price. If price exceeds your budget, leave immediately. Do NOT buy over-budget items.",
+      "when_to_apply": "After selecting all variants, before clicking Buy Now."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Buy Within 8 Steps",
+      "principle": "You have 15 steps max. A successful purchase takes 4-7 steps: search→click product→select color→select size→buy. If by step 8 you haven't found a product, drastically simplify your search to just the product type.",
+      "when_to_apply": "Track your step count. Past step 7 without a candidate, change strategy immediately."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Never Re-Click Same Product",
+      "principle": "If you already visited a product and it was wrong, NEVER click it again. Move to a different product or change your search query.",
+      "when_to_apply": "Before clicking any product link."
+    }
+  ],
+  "task_specific_skills": {
+    "apparel": [
+      {
+        "skill_id": "app_001",
+        "title": "Apparel Search Formula",
+        "principle": "For clothing: search ONLY [product type] [color]. Examples: 'dress shirts green', 'women's shorts gray', 'men's polo navy'. Do NOT include fabric, fit, wash method, sleeve length, or size in the search. Verify those on the product page.",
+        "when_to_apply": "Before any apparel search query."
+      },
+      {
+        "skill_id": "app_002",
+        "title": "Verify Product Category on Page",
+        "principle": "On the product page, check the title matches your garment type exactly. 'T-shirt' is NOT 'dress shirt'. 'Polo' is NOT 'henley'. 'Tank top' is NOT 'blouse'. If category doesn't match, leave IMMEDIATELY.",
+        "when_to_apply": "First thing after opening any product page."
+      },
+      {
+        "skill_id": "app_003",
+        "title": "Color Variant: Exact Match or Leave",
+        "principle": "Apparel variant names can be coded (e.g., 'c3-black', 'a1-green'). Select the option that exactly matches your task color. If your color is not in the options list, this product is wrong—leave immediately.",
+        "when_to_apply": "When selecting color on an apparel product page."
+      },
+      {
+        "skill_id": "app_004",
+        "title": "Size Must Be Exact",
+        "principle": "Select the exact size from your task. '2x' might appear as '2x-large' or 'xx-large'—pick the matching one. If your exact size isn't listed, the product doesn't work. Don't buy a different size.",
+        "when_to_apply": "When selecting size on any apparel product page."
+      },
+      {
+        "skill_id": "app_005",
+        "title": "After Failed Product: Change Search",
+        "principle": "If the product you clicked was wrong, go back to search and modify your query. Remove a word or try a synonym. Don't just click next page of bad results.",
+        "when_to_apply": "After leaving an unsuitable product page."
+      }
+    ],
+    "footwear": [
+      {
+        "skill_id": "foo_001",
+        "title": "Footwear Search: Type + Feature",
+        "principle": "Search format: [shoe type] [1 key feature]. Examples: 'men's boots waterproof', 'women's pumps open toe', 'running shoes black'. Keep to 3-5 words.",
+        "when_to_apply": "Before the first footwear search."
+      },
+      {
+        "skill_id": "foo_002",
+        "title": "Verify Shoe Type First",
+        "principle": "On the product page, confirm the title states the exact shoe type requested (boots ≠ loafers ≠ sneakers). If wrong type, leave immediately.",
+        "when_to_apply": "Right after opening a footwear product page."
+      },
+      {
+        "skill_id": "foo_003",
+        "title": "Check Size Availability",
+        "principle": "Find the size selector. Check if your exact numeric size (e.g., '9.5', '10.5') appears. If not available, leave the product immediately.",
+        "when_to_apply": "After confirming correct shoe type."
+      },
+      {
+        "skill_id": "foo_004",
+        "title": "Select Color Then Check Price",
+        "principle": "After selecting size, choose the exact color name from options. Then verify the final price is within budget. If color missing or price too high, leave.",
+        "when_to_apply": "After successful size selection."
+      }
+    ],
+    "home_decor": [
+      {
+        "skill_id": "hom_001",
+        "title": "Home Search: Item Type + Color",
+        "principle": "Search format: [furniture/decor type] [color or material]. Example: 'area rug taupe', 'throw pillow blue', 'curtains white'. Keep to 3-4 words.",
+        "when_to_apply": "Before searching for home decor items."
+      },
+      {
+        "skill_id": "hom_002",
+        "title": "Select Shape/Size Before Color",
+        "principle": "For home items, select shape/size variant first (e.g., 'runner', '7 ft'), then select color. Don't confuse size selectors with color selectors.",
+        "when_to_apply": "On a home product page with multiple variant types."
+      },
+      {
+        "skill_id": "hom_003",
+        "title": "Verify Material in Description",
+        "principle": "If the task requires specific material (wood, metal, ceramic) or features (washable, waterproof), check the description to confirm before buying.",
+        "when_to_apply": "When task specifies material or features not visible in title."
+      },
+      {
+        "skill_id": "hom_004",
+        "title": "Buy Only After Full Verification",
+        "principle": "Click 'Buy Now' only after confirming: correct item type, correct size/shape, correct color, and price within budget. If any is missing, keep searching.",
+        "when_to_apply": "Just before completing a purchase."
+      }
+    ],
+    "electronics": [
+      {
+        "skill_id": "ele_001",
+        "title": "Electronics Search: Product + Key Spec",
+        "principle": "Search format: [device type] [1 key spec]. Examples: 'bluetooth headphones noise cancelling', 'usb hub 4 port', 'phone case iphone 13'. Keep to 3-5 words.",
+        "when_to_apply": "Before searching for electronics."
+      },
+      {
+        "skill_id": "ele_002",
+        "title": "Verify Model Compatibility",
+        "principle": "Electronics must be compatible with specified models (e.g., 'for iPhone 13'). Check the title or description for explicit compatibility. If not stated, leave.",
+        "when_to_apply": "Right after opening an electronics product page."
+      },
+      {
+        "skill_id": "ele_003",
+        "title": "Select Technical Variants Precisely",
+        "principle": "Electronics have color, storage, connectivity variants. Select each one EXACTLY matching the task. '32GB' ≠ '64GB'. If required variant not available, leave immediately.",
+        "when_to_apply": "When selecting options on an electronics product page."
+      },
+      {
+        "skill_id": "ele_004",
+        "title": "Price Varies by Variant",
+        "principle": "Electronics prices vary significantly by variant (storage, bundle). After selecting your exact variant, verify price is within budget before buying.",
+        "when_to_apply": "After all variant selections, before clicking buy."
+      }
+    ],
+    "accessories": [
+      {
+        "skill_id": "acc_001",
+        "title": "Accessories Search: Type + Feature",
+        "principle": "Search format: [accessory type] [material or feature]. Examples: 'leather wallet bifold', 'sunglasses polarized', 'watch band silicone'. Keep to 3-4 words.",
+        "when_to_apply": "Before searching for accessories."
+      },
+      {
+        "skill_id": "acc_002",
+        "title": "Verify Intended Use",
+        "principle": "'Makeup bag' ≠ 'pencil case'. 'Watch band' ≠ 'bracelet'. Confirm the item's intended use matches your task before selecting variants.",
+        "when_to_apply": "Right after opening an accessories product page."
+      },
+      {
+        "skill_id": "acc_003",
+        "title": "Select Color/Pattern Exactly",
+        "principle": "Match exactly: 'rose gold' ≠ 'gold', 'leopard print' ≠ 'animal print'. If your exact option isn't listed, leave and try another product.",
+        "when_to_apply": "When selecting color or pattern variants."
+      },
+      {
+        "skill_id": "acc_004",
+        "title": "Quick Buy for Simple Items",
+        "principle": "Many accessories have few variants. If product type matches and color/size are correct, buy immediately. Speed matters for simple items.",
+        "when_to_apply": "When product clearly matches task requirements."
+      }
+    ],
+    "beauty_health": [
+      {
+        "skill_id": "bea_001",
+        "title": "Beauty Search: Product + Key Attribute",
+        "principle": "Search format: [product type] [key feature]. Examples: 'mascara waterproof', 'face moisturizer spf', 'nail polish red'. Keep to 3-4 words. Don't include scent names or ingredient lists.",
+        "when_to_apply": "Before searching for beauty or health products."
+      },
+      {
+        "skill_id": "bea_002",
+        "title": "Verify Product Category",
+        "principle": "'Shampoo' ≠ 'conditioner'. 'Body lotion' ≠ 'face cream'. 'Lipstick' ≠ 'lip gloss'. Verify the title matches your exact category.",
+        "when_to_apply": "Right after opening a beauty/health product page."
+      },
+      {
+        "skill_id": "bea_003",
+        "title": "Select Shade/Scent/Size Exactly",
+        "principle": "Match variants exactly: 'lavender' ≠ 'vanilla', 'nude pink' ≠ 'coral', '8 oz' ≠ '12 oz'. If your exact variant isn't available, leave immediately.",
+        "when_to_apply": "When selecting variants on a beauty/health product page."
+      },
+      {
+        "skill_id": "bea_004",
+        "title": "Buy Immediately When All Match",
+        "principle": "If product type, variant, and price all match your task, click 'Buy Now' immediately. Don't browse other products or add extra steps.",
+        "when_to_apply": "After confirming all requirements are met."
+      }
+    ],
+    "other": [
+      {
+        "skill_id": "oth_001",
+        "title": "Other: Product Type + Key Feature",
+        "principle": "For misc items (toys, sports, pet, stationery): search [product type] + [1 feature]. Examples: 'dog leash retractable', 'yoga mat thick', 'birthday candles number'. Keep to 3-4 words.",
+        "when_to_apply": "Before searching for miscellaneous products."
+      },
+      {
+        "skill_id": "oth_002",
+        "title": "Verify Exact Item Type",
+        "principle": "Misc items have similar-looking variants. Verify the TITLE states the exact item type you need. 'Retractable leash' ≠ just 'leash'. If type doesn't match, leave immediately.",
+        "when_to_apply": "Right after opening any product page."
+      },
+      {
+        "skill_id": "oth_003",
+        "title": "Select Options Then Buy",
+        "principle": "Select all required variant options (color, size, style, quantity) matching your task exactly. If a required option isn't available, leave. If all match and price is within budget, buy immediately.",
+        "when_to_apply": "After confirming the product type matches."
+      },
+      {
+        "skill_id": "oth_004",
+        "title": "Simplify and Buy Quickly on Failure",
+        "principle": "If first product fails, simplify search to just [product type]. Pick the first item matching your type, select options, and buy. Don't waste steps perfecting the search.",
+        "when_to_apply": "After first product attempt fails."
+      }
+    ]
+  }
+}

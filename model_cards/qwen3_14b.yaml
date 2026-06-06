@@ -1,0 +1,23 @@
+# Model Card: Qwen3-14B
+# Source: https://huggingface.co/Qwen/Qwen3-14B
+
+family: "Qwen3"
+variant: "14B"
+parameter_count: "14B"
+release_date: "2025-04"
+
+architecture: "dense-transformer"
+num_layers: 40
+hidden_size: 5120
+num_attention_heads: 40
+num_kv_heads: 8
+context_window: 32768
+vocab_size: 151936
+
+base_or_instruct: "instruct"
+alignment_method: "SFT + DPO + GRPO"
+training_data_size: "36T tokens"
+multilingual: true
+
+strengths: "strong reasoning, complex instruction following, multi-step planning, code generation, thinking mode with deep reasoning chains"
+weaknesses: "may be sensitive to prompt format, benefits from structured guidance but not overly detailed steps"

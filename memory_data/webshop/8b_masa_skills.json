@@ -1,0 +1,206 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Constraint-Rich Search Query",
+      "principle": "Include ALL key constraints from the task in your initial search query: product type, gender, key attributes (material, fit, sleeve), color, size, and price cap. For example, if the task says 'men's dress shirts cotton spandex classic fit short sleeve patina green x-large under 60', search: 'men's dress shirts cotton spandex classic fit short sleeve patina green x-large under 60'. Longer, more specific queries help the search engine find the EXACT product variant. Only simplify if you get zero results or completely irrelevant results. NEVER include 'machine wash', 'wash cold', or care instructions in search.",
+      "when_to_apply": "Every time you issue a search query."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Select Color FIRST, Then Size, Then Buy",
+      "principle": "On a product page, follow this EXACT sequence: (1) Click the color option that BEST matches the goal's color field, (2) Click the size option that matches the goal's size field, (3) Click 'buy now'. That's it - three clicks maximum on a product page. Do NOT click 'description', 'features', or 'reviews' unless you have 7+ steps remaining. Always prioritize BUYING over verifying.",
+      "when_to_apply": "Every time you land on a product page."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Match Color Exactly When Available",
+      "principle": "Read the goal's color field carefully - it might be a specific variant name like 'c3-black', 'a6-black', 'patina green', or 'shipwreck burgundy'. Scan ALL color options in the admissible actions. If the EXACT color name appears, click it. 'c3-black' is NOT the same as 'a6-black'. 'patina green' is NOT 'light blue'. If the exact color is not available but a similar one exists (e.g., goal says 'green', options have 'e-green' or 'forest green'), select the CLOSEST match and proceed to buy. A close color match gives partial credit which is better than 0.",
+      "when_to_apply": "When selecting color options on any product page."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "NEVER Go Back More Than Once",
+      "principle": "You may use 'back to search' AT MOST ONCE in the entire task. If you already went back once and the second product is also imperfect, just BUY IT ANYWAY. A partial-credit purchase is ALWAYS better than wasting all your steps searching. Going back multiple times is a TRAP - it uses up all 15 steps with nothing to show. The #1 failure mode is running out of steps because of too many 'back to search' actions.",
+      "when_to_apply": "Every time you consider clicking 'back to search'. Count how many times you have already gone back."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Buying Something is ALWAYS Better Than Buying Nothing",
+      "principle": "A purchase of ANY product gives you a chance at partial credit. No purchase gives ZERO credit guaranteed. Even if the product doesn't perfectly match the goal, BUY IT. Wrong color? Buy it anyway - you might get partial credit. Wrong size? Buy it anyway. Not sure if it's the right product? Buy it anyway. The ONLY scenario worse than buying the wrong product is buying NOTHING.",
+      "when_to_apply": "Always. This overrides all other considerations."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Open First Reasonable Product Immediately",
+      "principle": "On search results pages, click the FIRST product that looks like a plausible match based on the title. Do not spend steps browsing multiple pages with 'next >'. Clicking 'next >' wastes a step and almost never helps. If the first page has any product that roughly matches the product type, open it immediately. Speed is critical.",
+      "when_to_apply": "When viewing search results."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Emergency Buy at Step 8+",
+      "principle": "If you have used 8 or more steps without buying, STOP all browsing and verification. Go to any product page (or stay on the current one), select the closest matching options available, and click 'buy now' IMMEDIATELY. Do not search again. Do not go back. Just buy. You are running out of steps.",
+      "when_to_apply": "When you have used 8+ steps without purchasing."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Escape Loops - Never Repeat Actions",
+      "principle": "If you find yourself doing the same sequence twice (same search → same product → back → same search), you are STUCK. Immediately change strategy: either buy what you have, or use a completely different search query. NEVER click the same product ID twice. NEVER use the same search query twice. Loops waste all your steps and guarantee a score of 0.",
+      "when_to_apply": "When you notice any repeated action pattern."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Simplify Search ONLY After First Failure",
+      "principle": "If your first search returns zero results or completely irrelevant products, simplify the query to: [product type] [color] [size] under [price]. For example: 'men's dress shirt patina green x-large under 60'. Drop material, fit, and sleeve details. But do NOT start with a short query - always try the full constraint-rich query first, because it finds better products.",
+      "when_to_apply": "Only when the first search query produces no usable results."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Always Select BOTH Color AND Size Before Buying",
+      "principle": "Many failures happen because the agent buys without selecting color or size. Before clicking 'buy now', make sure you have clicked BOTH a color option AND a size option (if the goal specifies both). If the goal says 'color: olive, size: medium', you must click 'olive' AND click 'medium' before clicking 'buy now'. Skipping either one guarantees a wrong purchase.",
+      "when_to_apply": "Every time before clicking 'buy now'."
+    }
+  ],
+  "task_specific_skills": {
+    "apparel": [
+      {
+        "skill_id": "app_001",
+        "title": "Apparel Search Strategy",
+        "principle": "For clothing items, build your search query with ALL details: [gender] [garment type] [material if specified] [fit if specified] [sleeve if specified] [color] [size] under [price]. Example: 'men's dress shirt cotton spandex classic fit short sleeve patina green x-large under 60'. Include as many constraints as possible from the task. More constraints = better search results. If the size suggests a child (2T, 4T, youth), use 'boys' or 'girls' instead of 'men's' or 'women's'.",
+        "when_to_apply": "When searching for any clothing item."
+      },
+      {
+        "skill_id": "app_002",
+        "title": "Exact Color Variant Names Matter",
+        "principle": "Many clothing products have specific variant color names like 'c3-black', 'a6-black', 'b16-black', 'patina green', 'nautica red', 'shipwreck burgundy'. These are NOT interchangeable! If the goal says 'c3-black', you must click 'c3-black' specifically, NOT 'a6-black'. If the exact variant is unavailable, pick the color option that shares the base color (e.g., any '-black' variant for a black goal). Never skip color selection entirely.",
+        "when_to_apply": "When selecting color options on clothing product pages."
+      },
+      {
+        "skill_id": "app_003",
+        "title": "Size Naming Precision",
+        "principle": "Pay attention to exact size names: '2x' ≠ 'xx-large' ≠ '2x-large'. '4t' ≠ 'large'. 'large tall' ≠ 'large'. '5x-large big' ≠ '5x-large'. Always click the size option matching the goal. If an exact match doesn't exist, select the CLOSEST available size and buy anyway - partial credit is better than 0.",
+        "when_to_apply": "When selecting size options on clothing product pages."
+      }
+    ],
+    "other": [
+      {
+        "skill_id": "oth_001",
+        "title": "Other Items: Full Constraint Search",
+        "principle": "For miscellaneous items (toys, sports gear, pet products, office supplies, etc.), include ALL product-specific attributes in search: [product type] [key feature] [material] [color] [size/quantity] under [price]. Example: 'retractable dog leash 16ft blue under 30'. Include as many details as possible from the task to find the exact product. Only simplify if zero results.",
+        "when_to_apply": "When searching for products not in other specific categories."
+      },
+      {
+        "skill_id": "oth_002",
+        "title": "Verify Exact Product Function",
+        "principle": "Miscellaneous items can be easily confused. A 'desk lamp' is NOT a 'floor lamp'. A 'travel mug' is NOT a 'coffee cup'. On the product page, verify the title explicitly states the exact item type and function your task requires. If it's a different sub-type, click 'back to search' immediately.",
+        "when_to_apply": "Right after opening any miscellaneous product page."
+      },
+      {
+        "skill_id": "oth_003",
+        "title": "Select Variant → Buy Quickly",
+        "principle": "For misc items, select required variants (color, size, quantity, style) that match the task, then buy immediately. These items often have straightforward options. Don't over-verify—if the product type matches and the variant is correct, buy it. Partial credit from buying quickly beats running out of steps.",
+        "when_to_apply": "On any miscellaneous product page after confirming product type."
+      }
+    ],
+    "footwear": [
+      {
+        "skill_id": "foo_001",
+        "title": "Footwear Search",
+        "principle": "Include all constraints in search: [gender] [shoe type] [features like slip-resistant, rubber sole] [color code] size [number] under [price]. Example: 'men's slip resistant loafers rubber sole 228blue size 14 under 60'. Color codes for shoes are often specific (228blue, 1877blue). On the product page, select the exact color code and size number, then buy immediately.",
+        "when_to_apply": "When searching for shoes or boots."
+      },
+      {
+        "skill_id": "foo_002",
+        "title": "Footwear: Size is Non-Negotiable",
+        "principle": "Shoe sizes must match EXACTLY. '9.5' ≠ '9' ≠ '10'. If the task requires size 9.5 and only 9 or 10 are available, this product cannot satisfy your requirement. Leave immediately and find one with your exact size. Unlike apparel, footwear sizes have no flexibility.",
+        "when_to_apply": "When checking size options on footwear product pages."
+      },
+      {
+        "skill_id": "foo_003",
+        "title": "Color Codes for Footwear",
+        "principle": "Footwear often uses coded color names like '228blue', '1877blue', '2005brown'. Match the EXACT code from the task. '228blue' is NOT '1877blue'. If the exact code doesn't appear in options, select the closest base color match (e.g., any 'blue' option for a blue requirement) for partial credit.",
+        "when_to_apply": "When selecting color on footwear product pages."
+      }
+    ],
+    "home_decor": [
+      {
+        "skill_id": "hom_001",
+        "title": "Home Decor: Include All Attributes in Search",
+        "principle": "For home/furniture items, include all details: [item type] [material] [color] [size/dimensions] under [price]. Example: 'area rug runner taupe 2x7 under 50', 'curtains sheer white 52x84 under 30'. Home products often have many variants—including size in search helps narrow results significantly.",
+        "when_to_apply": "When searching for home decor, furniture, or household items."
+      },
+      {
+        "skill_id": "hom_002",
+        "title": "Home: Size/Dimension Selection is Critical",
+        "principle": "Home items often have many size options (e.g., '2x3', '5x7', '8x10' for rugs; '52x45', '52x84' for curtains). Select the EXACT dimensions matching your task. '5x7' ≠ '8x10'. If the exact size isn't available, select the closest match for partial credit rather than leaving empty-handed.",
+        "when_to_apply": "When selecting size/dimension options on home product pages."
+      },
+      {
+        "skill_id": "hom_003",
+        "title": "Home: Color Then Shape Then Buy",
+        "principle": "On home product pages, follow this order: (1) Select color/pattern (e.g., 'taupe', 'navy stripe'), (2) Select size/shape (e.g., 'runner', '5x7', '52x84'), (3) Buy immediately. Don't waste steps checking descriptions for home items—if color and size match, buy.",
+        "when_to_apply": "On any home decor product page."
+      }
+    ],
+    "electronics": [
+      {
+        "skill_id": "ele_001",
+        "title": "Electronics: Include All Specs in Search",
+        "principle": "For electronics, include all specifications: [product type] [key feature] [color] [capacity/size] under [price]. Example: 'bluetooth headphones noise cancelling black under 50', 'usb-c hub 7-port under 40', 'phone case iphone 14 clear under 20'. Include model compatibility if specified. More specific = better results.",
+        "when_to_apply": "When searching for electronics or tech accessories."
+      },
+      {
+        "skill_id": "ele_002",
+        "title": "Electronics: Verify Model Compatibility First",
+        "principle": "Electronics often must be compatible with specific models. On the product page, check that the title or options mention your required model (e.g., 'iPhone 14', 'Galaxy S23', 'MacBook Pro 14'). If compatibility isn't stated or matches a different model, leave immediately—wrong model = 0 score.",
+        "when_to_apply": "Right after opening an electronics product page."
+      },
+      {
+        "skill_id": "ele_003",
+        "title": "Electronics: Select Spec Variants → Buy",
+        "principle": "Electronics variants include storage (32GB, 64GB), color (black, white, space gray), and pack size. Select each matching variant from the task, then buy. If exact spec isn't available (e.g., need 64GB but only 32GB and 128GB exist), pick the closest one for partial credit and buy. Don't waste steps searching for perfection.",
+        "when_to_apply": "When selecting options on electronics product pages."
+      }
+    ],
+    "accessories": [
+      {
+        "skill_id": "acc_001",
+        "title": "Accessories: Include Style and Material in Search",
+        "principle": "For accessories (bags, watches, jewelry, sunglasses, belts), search with all constraints: [accessory type] [style/material] [color] under [price]. Example: 'leather crossbody bag black under 40', 'polarized sunglasses aviator gold under 30'. Include the distinguishing style/material that defines the accessory.",
+        "when_to_apply": "When searching for accessories."
+      },
+      {
+        "skill_id": "acc_002",
+        "title": "Accessories: Match Use Case Precisely",
+        "principle": "Accessories serve specific functions. 'Tote bag' ≠ 'crossbody bag' ≠ 'clutch'. 'Reading glasses' ≠ 'sunglasses'. 'Dress watch' ≠ 'sports watch'. Verify the product title matches the exact accessory type from your task. A similar-looking item from a different category gives wrong results.",
+        "when_to_apply": "Right after opening an accessories product page."
+      },
+      {
+        "skill_id": "acc_003",
+        "title": "Accessories: Color/Pattern → Size → Buy",
+        "principle": "On accessories pages: (1) Select exact color/pattern (e.g., 'rose gold', 'tortoise shell', 'leopard'). (2) Select size if applicable (ring size, watch band width, belt size). (3) Buy. Accessories usually have few variant options—selection should be quick. If your color/pattern isn't in the options, leave and find another product.",
+        "when_to_apply": "On any accessories product page."
+      }
+    ],
+    "beauty_health": [
+      {
+        "skill_id": "bea_001",
+        "title": "Beauty/Health: Include Product Details in Search",
+        "principle": "For beauty/health items, include key product details: [product type] [key feature] [variant] under [price]. Example: 'moisturizer spf 30 fragrance free under 25', 'hair dryer ionic lightweight under 50', 'nail polish gel red under 15'. Include the distinguishing feature that separates this product from similar ones.",
+        "when_to_apply": "When searching for beauty or health products."
+      },
+      {
+        "skill_id": "bea_002",
+        "title": "Beauty: Verify Exact Product Sub-Type",
+        "principle": "Beauty/health products have many similar sub-types. 'Face moisturizer' ≠ 'body lotion'. 'Shampoo' ≠ 'conditioner'. 'Mascara' ≠ 'eyeliner'. 'Electric toothbrush' ≠ 'manual toothbrush'. Verify the product title matches your exact sub-type before selecting variants.",
+        "when_to_apply": "Right after opening a beauty/health product page."
+      },
+      {
+        "skill_id": "bea_003",
+        "title": "Beauty: Select Shade/Scent/Size → Buy",
+        "principle": "Beauty products have variants like shade, scent, or size. (1) Select shade/scent matching task exactly ('lavender' ≠ 'vanilla', 'nude 01' ≠ 'nude 03'). (2) Select size/pack count. (3) Buy. If exact shade/scent not available, select closest match for partial credit—buying wrong shade beats not buying at all.",
+        "when_to_apply": "On any beauty/health product page."
+      }
+    ]
+  }
+}

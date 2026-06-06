@@ -1,0 +1,182 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Output ONLY Action – No Reasoning Text",
+      "principle": "Your response MUST contain ONLY the <action>...</action> tag with nothing else. Do NOT write any reasoning, analysis, or thinking text before or after the action tag. Every character outside <action></action> wastes tokens and steps. Bad: 'I need to find... <action>search[...]</action>'. Good: '<action>search[...]</action>'. This is the single most important rule.",
+      "when_to_apply": "EVERY single step. No exceptions."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "3-4 Word Search Maximum",
+      "principle": "Every search query MUST be 3-4 words maximum. Use ONLY: [product type] + [1 key attribute OR color]. Examples: 'men dress shirt', 'women pumps open toe', 'protein bars pecan', 'men polo navy'. NEVER include: price, wash instructions, fabric, fit type, multiple colors, multiple sizes. These cause zero results. Shorter = better results.",
+      "when_to_apply": "Before every search action."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Complete Purchase in 5-7 Steps",
+      "principle": "The ONLY winning strategy is: search(1) → click product(2) → click color(3) → click size(4) → buy now(5). That's 5 steps for a perfect purchase. You have 15 steps maximum. If your first product fails, you get exactly ONE more attempt. NEVER spend more than 7 steps on your first attempt. If by step 7 you haven't bought, switch to emergency mode immediately.",
+      "when_to_apply": "Track your step count at all times."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Click First Reasonable Product Immediately",
+      "principle": "On search results, click the FIRST product whose title contains your product category keyword (shirt, polo, pump, shorts, etc.). Do NOT browse multiple pages. Do NOT compare products. Do NOT skip to 'next >'. Click the first plausible match. If the first page has nothing matching your category, search with different words - never paginate more than once.",
+      "when_to_apply": "On every search results page."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "On Product Page: Color → Size → Buy (3 Clicks Only)",
+      "principle": "When you land on a product page, do EXACTLY these steps in order: (1) Look at admissible actions for your exact color name - click it. (2) Look at admissible actions for your exact size - click it. (3) Click 'buy now'. That's it. 3 clicks. Do NOT click 'description'. Do NOT click 'features'. Do NOT click 'reviews'. Do NOT think about whether the product is perfect. Just select options and buy.",
+      "when_to_apply": "Every time you are on a product page."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Missing Color/Size = Leave Immediately",
+      "principle": "If your required color is NOT in the admissible actions list, click 'back to search' immediately. If your required size is NOT in the admissible actions list, click 'back to search' immediately. Do not try similar colors. Do not try similar sizes. One glance at options → if exact match missing → back to search. Takes 1 step, not 5.",
+      "when_to_apply": "Immediately upon seeing admissible actions on a product page."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Emergency Buy at Step 10",
+      "principle": "If you reach step 10 without having purchased ANYTHING, you MUST buy the very next product you find regardless of match quality. Click any product → select any color → select any size → buy now. A 10% match purchase scores 0.1. No purchase scores 0.0. 0.1 > 0.0. There are no exceptions to this rule.",
+      "when_to_apply": "When your step count reaches 10 or higher without a purchase."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Never Search Same Query Twice",
+      "principle": "If you already searched 'men dress shirt' and got bad results, NEVER search 'men dress shirt' again. Try a completely different angle: 'cotton spandex shirt', 'classic fit shirt green', or just 'dress shirt'. Every repeated search wastes 1 precious step and returns identical results.",
+      "when_to_apply": "Before every search action."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Never Click Same Product ID Twice",
+      "principle": "Once you visit a product (e.g., b07f2g93bj) and leave it, NEVER click that ID again. It will show the same options. Clicking it again wastes 1 step guaranteed. If you see only previously-visited products in results, do a new search with different terms.",
+      "when_to_apply": "Before clicking any product link."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Never Click 'next >' More Than Once",
+      "principle": "You may click 'next >' at most ONE time per search. If page 2 also has no match, do NOT go to page 3. Instead, click 'back to search' and try different search terms. Pages 3+ almost never have what you need and each pagination wastes a step.",
+      "when_to_apply": "When considering whether to click 'next >' on results."
+    },
+    {
+      "skill_id": "gen_011",
+      "title": "Price Check is Automatic – Don't Waste Steps On It",
+      "principle": "In WebShop, the price shown on the results page or product page is visible. Glance at it. If it's clearly over budget (e.g., $200 when budget is $60), leave. Otherwise, just buy. Don't click description to verify price. Don't deliberate. If price looks reasonable (within 2x of budget), it's fine.",
+      "when_to_apply": "When deciding whether to buy."
+    },
+    {
+      "skill_id": "gen_012",
+      "title": "Back to Search = New Strategy Required",
+      "principle": "Every time you click 'back to search', you MUST use a DIFFERENT search query than before. If you just go back and search the same thing, you wasted 2 steps for nothing. Plan your fallback query BEFORE going back.",
+      "when_to_apply": "Before clicking 'back to search'."
+    }
+  ],
+  "task_specific_skills": {
+    "apparel": [
+      {
+        "skill_id": "app_001",
+        "title": "Apparel Search: Category + Color Only",
+        "principle": "For clothing: search '[gender] [garment type] [color]'. Examples: 'men dress shirt green', 'women shorts black', 'men polo blue'. 3 words. Do NOT add size, fit, fabric, wash, sleeve, or price to search. These are verified on the product page via variant selection.",
+        "when_to_apply": "Before searching for any clothing."
+      },
+      {
+        "skill_id": "app_002",
+        "title": "Select Color First, Then Size, Then Buy",
+        "principle": "On apparel product page, the workflow is always: click[exact-color-name] → click[exact-size] → click[buy now]. Three clicks. Do not check description. Do not check features. Do not verify fabric or fit - these give partial credit anyway. Just match color + size + buy.",
+        "when_to_apply": "On any clothing product page."
+      },
+      {
+        "skill_id": "app_003",
+        "title": "Youth/Kids: Search in Kids Category",
+        "principle": "If task mentions 'youth', 'boys', 'girls', or toddler sizes (2T-5T), search with 'boys' or 'girls' instead of 'men' or 'women'. Example: 'boys t-shirt pink' not 'men t-shirt youth'.",
+        "when_to_apply": "When task mentions youth, boys, girls, or child sizes."
+      }
+    ],
+    "other": [
+      {
+        "skill_id": "oth_001",
+        "title": "Other Items: Type + Feature Search",
+        "principle": "For miscellaneous products (toys, sports, office, pet, etc.): search '[product type] [key feature]'. Examples: 'dog leash retractable', 'yoga mat thick', 'candle birthday number'. 2-4 words max. Do NOT include brand, quantity, or detailed specs in search.",
+        "when_to_apply": "Before searching for miscellaneous items."
+      },
+      {
+        "skill_id": "oth_002",
+        "title": "Other: Verify Type → Select Option → Buy",
+        "principle": "On misc product page: (1) Confirm product title matches your exact item type. (2) Select required variant (color, size, quantity, style). (3) Click 'buy now'. These products often have simple options. If type matches and an option is close enough, buy immediately. Don't waste steps verifying descriptions.",
+        "when_to_apply": "On any miscellaneous product page."
+      }
+    ],
+    "footwear": [
+      {
+        "skill_id": "foot_001",
+        "title": "Footwear: Type + Feature + Gender",
+        "principle": "Search: '[gender] [shoe type] [key feature]'. Examples: 'women pumps open toe', 'men boots slip resistant', 'women sandals ankle strap'. 3-4 words max.",
+        "when_to_apply": "Before searching for footwear."
+      },
+      {
+        "skill_id": "foot_002",
+        "title": "Footwear: Size → Color → Buy",
+        "principle": "On shoe product page: click[size number] → click[color] → click[buy now]. Shoe sizes are numeric (e.g., '10.5', '9'). Select size first since it's the hardest constraint to match.",
+        "when_to_apply": "On any footwear product page."
+      }
+    ],
+    "home_decor": [
+      {
+        "skill_id": "home_001",
+        "title": "Home Decor: Type + Color or Style",
+        "principle": "Search: '[item type] [color or style]'. Examples: 'nightstand white', 'area rug taupe', 'curtains blush', 'throw pillow geometric'. 2-3 words. Home products often have clear titles that match well with simple searches.",
+        "when_to_apply": "Before searching for home/furniture items."
+      },
+      {
+        "skill_id": "home_002",
+        "title": "Home: Size → Color → Buy",
+        "principle": "Select size/dimension first (if applicable), then color, then buy. Home items often have size as the primary variant. Match dimensions exactly: '5x7' ≠ '8x10'. If exact size missing, pick closest and buy for partial credit.",
+        "when_to_apply": "On home/furniture product pages."
+      }
+    ],
+    "electronics": [
+      {
+        "skill_id": "elec_001",
+        "title": "Electronics: Type + Key Spec",
+        "principle": "Search: '[device type] [key spec or feature]'. Examples: 'bluetooth speaker waterproof', 'phone case iphone 14', 'usb hub type-c', 'wireless earbuds'. 2-4 words. Do NOT include brand, model number, or price in search.",
+        "when_to_apply": "Before searching for electronics."
+      },
+      {
+        "skill_id": "elec_002",
+        "title": "Electronics: Verify Compatibility → Select → Buy",
+        "principle": "On electronics page: (1) Check title mentions correct model/compatibility. If wrong model, leave immediately. (2) Select color/storage/size variant matching task. (3) Click 'buy now'. Electronics have strict compatibility - wrong model = 0 score. But if model matches, buy quickly even if other specs are imperfect.",
+        "when_to_apply": "On any electronics product page."
+      }
+    ],
+    "accessories": [
+      {
+        "skill_id": "acc_001",
+        "title": "Accessories: Type + Style/Material",
+        "principle": "Search: '[accessory type] [style or material]'. Examples: 'leather wallet', 'sunglasses polarized', 'crossbody bag canvas', 'watch band silicone'. 2-4 words. Keep searches simple—accessories have varied naming.",
+        "when_to_apply": "Before searching for accessories."
+      },
+      {
+        "skill_id": "acc_002",
+        "title": "Accessories: Color/Pattern → Size → Buy",
+        "principle": "On accessories page: (1) Select exact color/pattern from options. (2) Select size if needed (ring size, belt size, band width). (3) Click 'buy now'. Accessories usually have 1-2 variant types. Quick selection and buy. If exact color missing, leave and try different product.",
+        "when_to_apply": "On any accessories product page."
+      }
+    ],
+    "beauty_health": [
+      {
+        "skill_id": "bea_001",
+        "title": "Beauty/Health: Type + Feature",
+        "principle": "Search: '[product type] [key feature or variant]'. Examples: 'face cream spf', 'hair dryer ionic', 'nail polish red', 'toothbrush electric'. 2-4 words. Do NOT include ingredients, scent names, or brand in search.",
+        "when_to_apply": "Before searching for beauty or health products."
+      },
+      {
+        "skill_id": "bea_002",
+        "title": "Beauty: Select Shade/Scent → Size → Buy",
+        "principle": "On beauty product page: (1) Select shade/scent/variant matching task exactly. 'Lavender' ≠ 'Rose'. 'Nude 01' ≠ 'Nude 03'. (2) Select size/pack if needed. (3) Click 'buy now'. If exact shade is missing, leave immediately - wrong shade in beauty gives very low score.",
+        "when_to_apply": "On any beauty/health product page."
+      }
+    ]
+  }
+}

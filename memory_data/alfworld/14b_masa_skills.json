@@ -1,0 +1,90 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Think Before Acting",
+      "principle": "Before every action, briefly state: (1) what you need to find/do, (2) where you are now, (3) what locations you have already checked. Then pick ONE action from the admissible list. Never repeat a failed action.",
+      "when_to_apply": "Every single step."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Exact Object Name Matching",
+      "principle": "ONLY take or interact with the exact object your task requires. Read the full object name including its ID number carefully. Common confusions: soapbar≠soapbottle, spraybottle≠soapbottle, pen≠pencil, plate≠pan, mug≠cup, knife≠butterknife, cloth≠candle, tomato≠potato, dishsponge≠sponge. If the task says 'potato', never take 'tomato' or 'dishsponge'. If the task says 'tomato', never take 'pan' or 'bowl'.",
+      "when_to_apply": "Before every 'take' action."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Smart Search Order and No Revisits",
+      "principle": "Search locations in this priority order: (1) countertop, diningtable, sidetable, coffeetable — objects are often in plain sight; (2) shelf, bed, sofa, armchair, desk — common resting surfaces; (3) fridge, microwave, sinkbasin — appliance areas; (4) drawers and cabinets — open each one, check, then move on. NEVER go to a location you already visited unless you need to interact with something there. If you find yourself going to the same place twice with no progress, STOP and try a completely different location.",
+      "when_to_apply": "When searching for an object."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "After Acquiring Object, Go Directly to Goal",
+      "principle": "Once you have the correct object (and have transformed it if needed), go immediately to the destination and execute the 'move' action. Do not wander, examine, or search for anything else while holding the goal object.",
+      "when_to_apply": "After picking up (and optionally transforming) the target object."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Understand Observation Delay",
+      "principle": "The environment observation you see at step N shows the RESULT of step N-1's action. So after 'go to X', the next observation will confirm you arrived at X. After 'take Y', the next observation will confirm you picked up Y. Plan accordingly — you do not need to repeat an action just because you do not see its result immediately.",
+      "when_to_apply": "Every step — use this to avoid redundant actions."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Open Before Checking, Only Use Admissible Actions",
+      "principle": "Closed containers (cabinets, drawers, fridge) must be opened before you can see or take items inside. Always open a closed container immediately after arriving. Your action MUST appear in the admissible actions list — if it does not, choose a different valid action.",
+      "when_to_apply": "When at a closed container, and before every action."
+    }
+  ],
+  "task_specific_skills": {
+    "pick_and_place": [
+      {
+        "skill_id": "pic_001",
+        "title": "Pick and Place Workflow",
+        "principle": "Steps: (1) Search for the target object using the smart search order. (2) 'take [object] from [location]'. (3) 'go to [destination]'. (4) If destination is a closed cabinet/drawer, 'open' it first. (5) 'move [object] to [destination]'. Use 'move' not 'put' for placement.",
+        "when_to_apply": "Tasks like 'put X in/on Y' without clean/heat/cool."
+      }
+    ],
+    "pick_two_obj_and_place": [
+      {
+        "skill_id": "p2_001",
+        "title": "Two Objects: Separate Cycles",
+        "principle": "You need TWO different instances with different ID numbers. Cycle 1: find instance #1 → take it → go to destination → 'move' it there. Cycle 2: search DIFFERENT locations for instance #2 → take it → go to destination → 'move' it there. After placing the first, search locations you have NOT checked yet for the second. Do not try to take the first object back.",
+        "when_to_apply": "Tasks with 'find two X' or 'put two X'."
+      }
+    ],
+    "look_at_obj_in_light": [
+      {
+        "skill_id": "exa_001",
+        "title": "Examine Under Desklamp",
+        "principle": "Steps: (1) Find and 'take' the target object. (2) Go to the location where a desklamp exists. Desklamps are typically on desk or sidetable — check admissible actions for 'use desklamp 1'. (3) Execute 'use desklamp 1'. IMPORTANT: 'use desklamp 1' only works when you are at the SAME location as the desklamp. If 'use desklamp 1' returns Nothing happens, you are at the wrong location — try going to a different desk or sidetable where the desklamp actually is.",
+        "when_to_apply": "Tasks with 'examine X with desklamp' or 'look at X under the desklamp'."
+      }
+    ],
+    "clean": [
+      {
+        "skill_id": "cle_001",
+        "title": "Clean Workflow",
+        "principle": "Steps: (1) Find and 'take' the target object. (2) 'go to sinkbasin 1'. (3) 'clean [object] with sinkbasin 1'. (4) 'go to [destination]'. (5) If destination is closed, 'open' it. (6) 'move [object] to [destination]'. The object stays in inventory after cleaning.",
+        "when_to_apply": "Tasks with 'clean X and put it in Y' or 'put a clean X in Y'."
+      }
+    ],
+    "heat": [
+      {
+        "skill_id": "hea_001",
+        "title": "Heat Workflow",
+        "principle": "Steps: (1) Find and 'take' the target object. (2) 'go to microwave 1'. (3) 'heat [object] with microwave 1'. (4) 'go to [destination]'. (5) If destination is closed, 'open' it. (6) 'move [object] to [destination]'. The object stays in inventory after heating.",
+        "when_to_apply": "Tasks with 'heat X and put it in Y' or 'put a hot X in Y'."
+      }
+    ],
+    "cool": [
+      {
+        "skill_id": "coo_001",
+        "title": "Cool Workflow",
+        "principle": "Steps: (1) Find and 'take' the target object. (2) 'go to fridge 1'. (3) 'cool [object] with fridge 1' (NOT 'move [object] to fridge 1'). (4) 'go to [destination]'. (5) If destination is closed, 'open' it. (6) 'move [object] to [destination]'. The object stays in inventory after cooling.",
+        "when_to_apply": "Tasks with 'cool X and put it in Y' or 'put a cool X in Y'."
+      }
+    ]
+  }
+}

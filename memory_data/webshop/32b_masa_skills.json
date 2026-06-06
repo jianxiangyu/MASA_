@@ -1,0 +1,224 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "ABSOLUTE FORMAT RULE: Output ONLY <action>...</action>",
+      "principle": "Your ENTIRE response must be exactly ONE <action>...</action> tag. No thinking, no analysis, no explanation, no backticks, no markdown. WRONG: '```<action>search[...]</action>```'. WRONG: 'Based on the observation... <action>...</action>'. WRONG: 'The current product page is for... <action>...</action>'. CORRECT: '<action>search[men dress shirt]</action>'. Any text outside the action tag wastes your step and may cause parsing failure.",
+      "when_to_apply": "EVERY single response without exception. This is the #1 formatting rule."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Search Query: 3-5 Words = [Product Type] + [Color OR Key Attribute]",
+      "principle": "Search queries MUST be 3-5 words. Format: '[gender] [product type] [color or key attribute]'. Examples: 'men dress shirt green', 'women tops black', 'men loafers brown', 'protein bars pecan'. When the color is specific/unusual (patina green, mossy oak, boulder), include a simplified color word. NEVER include: price, wash method, fabric, fit type, sleeve type, 'machine wash', size numbers. These clutter the search and return worse results.",
+      "when_to_apply": "Before every search action."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "CRITICAL: VERIFY Color+Size in Admissible Actions BEFORE Clicking Anything",
+      "principle": "When you land on a product page, your FIRST action is to READ the admissible actions list completely. Check: (1) Does your EXACT required color appear in the list? (2) Does your EXACT required size appear in the list? If BOTH are present → proceed to select them. If EITHER is MISSING → your next action MUST be click[back to search]. Do NOT click any option. Do NOT click 'buy now'. Do NOT click 'features' or 'description'. Just leave immediately. Buying a product without your required color/size = guaranteed score 0.",
+      "when_to_apply": "The FIRST thing you do on EVERY product page. Check BEFORE clicking any option."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Color Matching: EXACT String or Substring Match Required",
+      "principle": "Your required color must appear as an EXACT match or clear substring in the admissible actions. Rules: (1) 'navy blue' matches 'navy blue' only, NOT 'light blue', NOT 'blue', NOT 'navy'. (2) Coded colors like 'c3-black' must match 'c3-black' exactly, NOT just 'black'. (3) 'a1-green' matches 'a1-green' only, NOT 'green' alone. (4) 'mint spring' matches 'mint spring' only, NOT 'mint'. (5) If task says 'green' and options show 'a1-green', 'b2-green', select the one containing 'green'. If NO option contains your color string → click 'back to search' IMMEDIATELY.",
+      "when_to_apply": "When checking if your color exists on the product page."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Size Matching: EXACT Match Including Modifiers",
+      "principle": "Size must match EXACTLY including all modifiers. '3x-large' ≠ 'x-large' ≠ 'xx-large'. 'x-large tall' ≠ 'x-large'. '5x-large big' ≠ '5x-large'. '4t' ≠ '4x-large'. If your exact size string is NOT listed in admissible actions → click 'back to search'. Do NOT select a nearby size hoping it works. Wrong size = score 0.",
+      "when_to_apply": "When checking if your size exists on the product page."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Purchase Flow: Color → Size → Buy Now (Exactly 3 Clicks)",
+      "principle": "Once you've verified BOTH color AND size exist in admissible actions, execute exactly: (1) click[your-exact-color], (2) click[your-exact-size], (3) click[buy now]. Three clicks, three steps. If task requires only color (no size), do: click color → click buy now. If only size, do: click size → click buy now. NEVER click 'description', 'features', or 'reviews' - these waste steps and provide no useful information for purchasing.",
+      "when_to_apply": "After confirming options exist, when executing the purchase."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Product Selection from Search: Match Product TYPE in Title",
+      "principle": "On search results, READ product titles before clicking. Your task says a specific product type (dress shirts, henleys, polos, loafers, t-shirts, hoodies, shorts, etc.). Click the product whose title best matches that TYPE. 'Henley' ≠ 'Polo' ≠ 'Dress Shirt' ≠ 'T-shirt'. If task asks for 'henleys', click a product with 'henley' in its title. If no product matches your type on page 1, click 'next >' ONCE to check page 2. If still no match, try a different search query.",
+      "when_to_apply": "On every search results page before clicking a product."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "NEVER Repeat the Same Search Query",
+      "principle": "Before typing any search, recall ALL previous searches you've done this task. If you already searched 'men shirt olive', you MUST NOT search 'men shirt olive' again - results will be identical. Each new search MUST use genuinely different words. Strategies: (1) Include color: 'men shirt olive' → 'men henley olive'. (2) Change product term: 'dress shirt' → 'button down'. (3) Add/remove gender: 'men shirt' → 'shirt green'. (4) Use synonym: 'top' → 'blouse'. Repeating a search wastes 1 step guaranteed and often leads to an infinite loop.",
+      "when_to_apply": "Before EVERY search action."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "NEVER Click the Same Product ID Twice",
+      "principle": "Once you visit a product (e.g., b09s3bn15c) and leave it (because it didn't have your options), NEVER click that product ID again. It will show the exact same options. If search results show only products you already visited, you MUST search with DIFFERENT terms. Clicking the same product is the #1 cause of infinite loops.",
+      "when_to_apply": "Before clicking any product link. Remember which product IDs you've already visited."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Step Budget: Attempt 1 (steps 1-5), Attempt 2 (steps 6-10), Emergency (steps 11-15)",
+      "principle": "Ideal purchase: search(1) → click product(2) → verify+click color(3) → click size(4) → buy now(5). Budget: Attempt 1 (steps 1-5): First search + first product. If options don't match by step 3, go back immediately. Attempt 2 (steps 6-10): Try different search terms and different product. Emergency (steps 11+): If still not bought, click ANY product, select CLOSEST matching options, and buy IMMEDIATELY. Any purchase > no purchase. Score 0.1 > 0.0.",
+      "when_to_apply": "Track your step count throughout the task."
+    },
+    {
+      "skill_id": "gen_011",
+      "title": "Breaking Loops: After 2 Failed Products, Change Strategy Completely",
+      "principle": "If you've visited 2 different products and neither had the right options: your search strategy is wrong. On attempt 3, COMPLETELY change approach: (1) If you searched generic ('men shirt'), add the color: 'men shirt patina green'. (2) If you searched with color ('men shirt green'), try a broader type: 'shirt green' or 'green shirt'. (3) Try 'next >' on search results to see different products. (4) Use a totally different product synonym. NEVER go back to a strategy that already failed.",
+      "when_to_apply": "After 2 failed product visits."
+    },
+    {
+      "skill_id": "gen_012",
+      "title": "When Product Has No Variant Options Shown: Select Size/Color From Admissible Actions",
+      "principle": "Some products show variants directly in admissible actions without a separate 'select options' step. If you see 'buy now' AND color/size options in the SAME admissible actions list, you CAN and MUST select them before buying. The options ARE available — just click them in order (color → size → buy now). Do NOT leave just because options appear alongside 'buy now'.",
+      "when_to_apply": "When product page shows buy now and options simultaneously in admissible actions."
+    },
+    {
+      "skill_id": "gen_013",
+      "title": "Emergency Buy Rule: Step 12+ Without Purchase",
+      "principle": "If you reach step 12 without having clicked 'buy now', you are in EMERGENCY mode. Your next actions MUST lead to a purchase within 3 steps maximum. Search 2-word query → click first product → select closest color → select closest size → buy now. Do NOT be picky. ANY completed purchase with selected options scores higher than 0. Do NOT waste remaining steps on 'back to search' at this point.",
+      "when_to_apply": "When step count reaches 12 or higher without a purchase."
+    },
+    {
+      "skill_id": "gen_014",
+      "title": "NEVER Click 'features', 'description', or 'reviews'",
+      "principle": "Clicking 'features', 'description', or 'reviews' on a product page is ALWAYS a waste. These pages show text information but do NOT help you purchase. You can already see all available color and size options in the admissible actions list. You do NOT need extra product info to make a purchase decision. Every click on these wastes 1 step and brings you no closer to buying.",
+      "when_to_apply": "On any product page — never click information links."
+    }
+  ],
+  "task_specific_skills": {
+    "apparel": [
+      {
+        "skill_id": "app_001",
+        "title": "Apparel Search: [Gender] [Product Type] [Color Word]",
+        "principle": "For clothing: search '[gender] [garment type] [base color word]'. Examples: 'men dress shirt green', 'women tops black', 'men henley gray', 'boys t-shirt pink'. If the color is coded (c3-black, a1-green), use only the base color word in search ('black', 'green'). If color is uncommon (patina green, cradle pink, mossy oak), include a simplified version: 'men shirt green', 'men shirt pink', 'men shirt mossy'. 3-5 words maximum. NEVER include: fabric, fit type, wash method, sleeve type, price.",
+        "when_to_apply": "Before any clothing search."
+      },
+      {
+        "skill_id": "app_002",
+        "title": "Apparel: Verify Color AND Size Exist → Click Color → Click Size → Buy",
+        "principle": "On any clothing product page: (1) SCAN admissible actions for your EXACT color string. (2) SCAN for your EXACT size string. (3) If BOTH found: click color → click size → click buy now. (4) If EITHER missing: click 'back to search' — do NOT click anything else first. The most common error is seeing 'black' when you need 'c3-black', or seeing 'x-large' when you need 'x-large tall'. These are DIFFERENT options and will score 0.",
+        "when_to_apply": "On any clothing product page."
+      },
+      {
+        "skill_id": "app_003",
+        "title": "Coded Color Names: Search Base Color, Select EXACT Code",
+        "principle": "When task requires a coded color (c3-black, a1-green, b2-blue, d01blue, pine forest green): (1) In SEARCH, use only the base color word: 'men shirt black', 'women top green'. (2) On the product page, you MUST click the EXACT coded string from admissible actions: 'c3-black' not 'black', 'a1-green' not 'green'. (3) If the exact code is NOT in admissible actions, leave immediately. Clicking plain 'black' when you need 'c3-black' will FAIL.",
+        "when_to_apply": "Whenever the required color contains hyphens, numbers, or multiple words."
+      },
+      {
+        "skill_id": "app_004",
+        "title": "Product Type Verification: Match EXACT Garment Category",
+        "principle": "Before buying, verify the product matches your task's garment type. 'Henley' ≠ 'Polo' ≠ 'Dress Shirt' ≠ 'T-shirt' ≠ 'Tank Top'. 'Hoodie' ≠ 'Sweatshirt' ≠ 'Jacket'. 'Shorts' ≠ 'Pants' ≠ 'Capris'. If the product page shows a different garment type than what your task requires, go back — even if color and size options match perfectly. Wrong product type = score 0.",
+        "when_to_apply": "Before committing to buy any clothing item."
+      },
+      {
+        "skill_id": "app_005",
+        "title": "Apparel Fallback: Include Specific Color in Search",
+        "principle": "If first search didn't yield a product with your color: include the SPECIFIC color name in your next search. Example: 'men dress shirt' failed → try 'men dress shirt patina green' or 'dress shirt mint spring'. This narrows results to products more likely to carry your color. Also try changing the product term: 'dress shirt' → 'button down shirt', 'henley' → 'henley shirt'.",
+        "when_to_apply": "After first product attempt fails due to missing color."
+      },
+      {
+        "skill_id": "app_006",
+        "title": "Youth/Kids Sizing: Use Boys/Girls in Search",
+        "principle": "If task mentions youth sizes (2T, 3T, 4T, 5T) or says 'boys'/'girls', search with 'boys' or 'girls' instead of 'men'/'women'. Example: size '4t' → search 'boys t-shirt pink'. Youth sizes and adult sizes are completely different products. If you see only adult sizes (small, medium, large) but need '4t', you're on the WRONG product — go back.",
+        "when_to_apply": "When task specifies youth/toddler sizes or boys/girls."
+      }
+    ],
+    "footwear": [
+      {
+        "skill_id": "foot_001",
+        "title": "Footwear Search: [Gender] [Shoe Type] [Key Feature]",
+        "principle": "For shoes: search '[gender] [shoe type] [1 key feature]'. Examples: 'men loafers slip resistant', 'women pumps open toe', 'men boots waterproof', 'women sandals leather'. 3-4 words. Include the MOST distinguishing feature from the task (e.g., 'slip resistant', 'waterproof', 'steel toe'). Do NOT include color or size in footwear searches.",
+        "when_to_apply": "Before searching for any footwear."
+      },
+      {
+        "skill_id": "foot_002",
+        "title": "Footwear: Verify EXACT Size Number → Color Code → Buy",
+        "principle": "On shoe pages: (1) Check admissible actions for your EXACT size number. '9' ≠ '9.5' ≠ '8.5'. If exact size not listed → leave immediately. (2) Check for your exact color code. Shoe colors are often coded: '1877blue' ≠ '228blue' ≠ 'blue'. (3) If both found: click size → click color → click buy now. Shoe sizes are never interchangeable — wrong size = score 0.",
+        "when_to_apply": "On any footwear product page."
+      },
+      {
+        "skill_id": "foot_003",
+        "title": "Footwear Color Codes: Match the FULL Code",
+        "principle": "Shoe colors use numeric codes: '1877blue', '228blue', '2005brown', 'b07l6dv555'. These are UNIQUE identifiers — '1877blue' and '228blue' are DIFFERENT colors even though both contain 'blue'. You must match the COMPLETE code string exactly from admissible actions. If your required code is not listed, this product does NOT have your color. Do NOT select a different code hoping it's close enough.",
+        "when_to_apply": "When selecting color on footwear pages with numeric color codes."
+      }
+    ],
+    "home_decor": [
+      {
+        "skill_id": "home_001",
+        "title": "Home Items: [Item Type] [Color or Key Feature]",
+        "principle": "For home/furniture: search '[item type] [color or key feature]'. Examples: 'nightstand white', 'area rug taupe', 'desk mat non slip', 'curtains blush'. 2-4 words. For items with coded colors (e.g., 'cargoo5209', 'rabbit3555lgoo1957'), do NOT include codes in search. Search by type only: 'desk mat', 'area rug'. Select the code on the product page from admissible actions.",
+        "when_to_apply": "Before searching for home/furniture items."
+      },
+      {
+        "skill_id": "home_002",
+        "title": "Home: Size/Dimension Must Match EXACTLY",
+        "principle": "Home items often have precise size options like '20x24in+20x48in', '7 ft 8 in', '15.7x23.6in+15.7x47.2in'. These must match EXACTLY — dimensions are never interchangeable. Scan admissible actions carefully for your exact dimension string. If not found → leave. Also check for shape requirements (runner, rectangular, round) — these may affect which product is correct.",
+        "when_to_apply": "On home/furniture product pages with dimension options."
+      },
+      {
+        "skill_id": "home_003",
+        "title": "Home Items with Complex Color Codes",
+        "principle": "Home products often use long color codes like 'rabbit3555lgoo1957', 'cargoo5209'. For these: (1) Search by product type only: 'area rug', 'desk mat'. (2) On product page, scan ALL admissible actions for the exact code string. (3) If found, click it. If not found, try different products. These codes are unique identifiers that will only exist on the correct product.",
+        "when_to_apply": "When task requires a home item with a complex alphanumeric color code."
+      }
+    ],
+    "other": [
+      {
+        "skill_id": "food_001",
+        "title": "Food/Consumables: [Product Type] [Key Flavor/Variant]",
+        "principle": "For food, supplements, bars: search '[product type] [main flavor word]'. Examples: 'protein bars pecan', 'energy drink berry', 'vitamins calcium'. 2-3 words. The key differentiator for food is FLAVOR — read the task carefully for the exact flavor required.",
+        "when_to_apply": "Before searching for food or consumable products."
+      },
+      {
+        "skill_id": "food_002",
+        "title": "Food: Flavor Selection Must Be EXACT",
+        "principle": "Food product flavors are precise and NOT interchangeable: 'chocolate peanut butter' ≠ 'dark chocolate coconut almond' ≠ 'mint chocolate'. 'pecan pie' ≠ 'chocolate peanut butter'. If the task says 'pecan' flavor and the product only offers 'chocolate covered strawberry', 'chocolate peanut butter', 'dark chocolate coconut almond', 'mint chocolate', 'sampler pack' — NONE of these match 'pecan'. Click 'back to search' and find a DIFFERENT product that has the pecan flavor. Do NOT select any flavor just because the product appeared in search results.",
+        "when_to_apply": "When selecting flavor/variant options on food product pages."
+      }
+    ],
+    "electronics": [
+      {
+        "skill_id": "elec_001",
+        "title": "Electronics: [Device Type] [Compatibility/Feature]",
+        "principle": "For electronics: search '[device type] [compatibility or key feature]'. Examples: 'phone case iphone 14', 'bluetooth headphones noise cancelling', 'usb hub thunderbolt'. Include model name if required for compatibility. 3-4 words.",
+        "when_to_apply": "Before searching for electronics."
+      },
+      {
+        "skill_id": "elec_002",
+        "title": "Electronics: Verify Model Compatibility → Spec Variant → Buy",
+        "principle": "On electronics pages: (1) Verify product matches required model/compatibility. iPhone 13 case ≠ iPhone 14 case. (2) Check admissible actions for exact spec variant: '64GB' ≠ '32GB', 'USB-C' ≠ 'USB-A'. (3) If all match, select variant → buy. Technical specs are NEVER interchangeable. Wrong spec = score 0.",
+        "when_to_apply": "On any electronics product page."
+      }
+    ],
+    "accessories": [
+      {
+        "skill_id": "acc_001",
+        "title": "Accessories: [Type] [Style/Material]",
+        "principle": "For accessories: search '[accessory type] [style or material]'. Examples: 'leather wallet bifold', 'sunglasses polarized', 'crossbody bag canvas'. 2-4 words. Accessories use diverse naming — keep searches broad enough to find relevant products.",
+        "when_to_apply": "Before searching for accessories."
+      },
+      {
+        "skill_id": "acc_002",
+        "title": "Accessories: Non-Standard Size Precision",
+        "principle": "Accessories use non-standard sizes: watch bands (38mm, 42mm), rings (size 5-12), belts (S/M/L or inch), bracelets (6.5\", 7\"). Match EXACTLY. '38mm' ≠ '42mm'. If exact size not in admissible actions → leave.",
+        "when_to_apply": "When selecting size on accessories pages."
+      }
+    ],
+    "beauty_health": [
+      {
+        "skill_id": "bea_001",
+        "title": "Beauty/Health: [Product Type] [Key Attribute]",
+        "principle": "For beauty/health: search '[product type] [key attribute]'. Examples: 'face cream spf', 'shampoo sulfate free', 'lipstick matte red'. 2-4 words. Do NOT include ingredient lists or brand names in search.",
+        "when_to_apply": "Before searching for beauty or health products."
+      },
+      {
+        "skill_id": "bea_002",
+        "title": "Beauty: Shade/Scent Must Match EXACTLY",
+        "principle": "Beauty shades and scents are precise: 'nude 01' ≠ 'nude 03', 'lavender' ≠ 'vanilla', 'cherry red' ≠ 'ruby red'. Scan ALL options in admissible actions. Only click the EXACT match. If exact shade not available → click 'back to search'. Beauty shades are as strict as color codes.",
+        "when_to_apply": "When selecting shade/scent on beauty product pages."
+      }
+    ]
+  }
+}

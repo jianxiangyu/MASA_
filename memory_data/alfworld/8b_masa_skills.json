@@ -1,0 +1,180 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "ALWAYS Use Admissible Actions — No Exceptions",
+      "principle": "Before every action, read the 'admissible actions' list in your observation. You MUST pick your action EXACTLY from this list. If your intended action does not appear verbatim in the list, DO NOT use it. Instead, find the closest matching action from the admissible list. Actions not in the list will ALWAYS result in 'Nothing happens'. Pay special attention to placement commands: the environment often uses 'move X to Y' instead of 'put X in/on Y'. If you see 'move X to Y' in the admissible list, use that exact command.",
+      "when_to_apply": "Every single turn, without exception."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Use 'move X to Y' for Placing Objects",
+      "principle": "In this environment, the correct command to place an object is usually 'move <object> to <destination>' (NOT 'put <object> in/on <destination>'). When you are holding an object and want to place it somewhere: (1) Check the admissible actions list. (2) Look for 'move <object> to <destination>'. (3) Use that exact command. The 'put' command almost never works and will return 'Nothing happens'. ALWAYS prefer 'move' over 'put' for placement.",
+      "when_to_apply": "Every time you want to place or deposit an object at a location."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Identify the EXACT Target Object — Never Substitute",
+      "principle": "Read the task description carefully and identify the EXACT object type required. Common confusions to avoid: cloth ≠ soapbottle ≠ spraybottle; fork ≠ knife ≠ spatula ≠ butterknife; soapbar ≠ soapbottle; apple ≠ potato ≠ tomato; tissuebox ≠ toiletpaper; ladle ≠ fork ≠ spatula. If you cannot find the target object at your current location, move to other locations and keep searching. NEVER pick up a different object type as a substitute — the task can ONLY be completed with the exact object specified.",
+      "when_to_apply": "Before EVERY 'take' action. Re-read the task goal and confirm the object you are about to take matches exactly."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Verify Actions Succeeded via Observations",
+      "principle": "After every action, carefully read the observation to confirm it succeeded: (a) After 'take X from Y': look for 'You pick up the X from the Y'. If the observation says something else, the take FAILED. (b) After 'move X to Y': look for 'You move the X to the Y'. (c) After 'clean/heat/cool X with Y': look for 'You clean/heat/cool the X using the Y'. (d) 'Nothing happens' always means FAILURE. If an action failed, do NOT proceed as if it succeeded — diagnose why and try a different approach.",
+      "when_to_apply": "After every action, read the next observation carefully."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Break Out of Loops Immediately",
+      "principle": "If you have performed the same action twice and gotten the same result (especially 'Nothing happens'), you MUST try something different. Check the admissible actions list for alternative commands. Common fixes: (a) Use 'move' instead of 'put'. (b) Use 'use' instead of 'examine'. (c) Go to a different location. (d) Open a container before interacting with its contents. NEVER repeat a failed action more than once.",
+      "when_to_apply": "Whenever you receive 'Nothing happens' or see yourself repeating actions."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Systematic Search Strategy",
+      "principle": "When searching for an object: (1) Start with open surfaces — countertops, tables, desks, shelves, beds, sofas. Just 'go to' them and read what's visible. (2) Then try containers — 'go to cabinet/drawer/fridge', then 'open' them. (3) Keep a mental list of checked locations. Never revisit locations already confirmed empty for your target. (4) If you've exhausted all locations in one room, move to another room.",
+      "when_to_apply": "When you need to find a specific object and don't know where it is."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Decompose Tasks into Clear Steps",
+      "principle": "Every task follows a pattern: (1) Find target object → (2) Take it → (3) Transform if needed (clean/heat/cool) → (4) Go to destination → (5) Place it using 'move X to Y'. Execute one step at a time. Confirm each step succeeded before moving to the next.",
+      "when_to_apply": "At the start of every task."
+    }
+  ],
+  "task_specific_skills": {
+    "pick_and_place": [
+      {
+        "skill_id": "pp_001",
+        "title": "Identify Target and Destination",
+        "principle": "Parse the task: 'put a/some X in/on Y' means find object X and place it at destination Y. Be precise about X: 'soapbottle' ≠ 'spraybottle' ≠ 'soapbar'; 'tissuebox' ≠ 'toiletpaper'; 'pencil' ≠ 'pen'; 'mug' ≠ 'cup'; 'creditcard' ≠ 'cellphone'.",
+        "when_to_apply": "At the start of any pick_and_place task."
+      },
+      {
+        "skill_id": "pp_002",
+        "title": "Search → Take → Navigate → Move",
+        "principle": "Step 1: Search surfaces and containers for the target object. Step 2: When found, use 'take X from Y' (verify it appears in admissible actions). Step 3: Navigate to destination with 'go to Y'. Step 4: Check admissible actions for placement — use 'move X to Y' (NOT 'put X in/on Y'). If you see 'move X to Y' in admissible list, use it. Task complete.",
+        "when_to_apply": "Throughout the entire pick_and_place task."
+      },
+      {
+        "skill_id": "pp_003",
+        "title": "Handle Container Destinations",
+        "principle": "If the destination is a container (cabinet, drawer, fridge): (1) 'go to <container>'. (2) Check if it needs opening: if 'open <container>' is in admissible, open it first. (3) Then check admissible for 'move X to <container>' and use it.",
+        "when_to_apply": "When the destination is a closed container."
+      }
+    ],
+    "pick_two_obj_and_place": [
+      {
+        "skill_id": "pt2_001",
+        "title": "Two Cycles: Find-Take-Place, Then Repeat",
+        "principle": "Cycle 1: Find first instance of target → take it → go to destination → 'move X to Y'. Cycle 2: Find second instance → take it → go to destination → 'move X to Y'. Never hold two objects. Place the first before searching for the second. During first search, remember locations where you saw other instances of the target.",
+        "when_to_apply": "At the start of any 'put two X in Y' or 'find two X and put them in Y' task."
+      },
+      {
+        "skill_id": "pt2_002",
+        "title": "Count Placements Carefully",
+        "principle": "Track: placed = 0. After each successful 'move' (confirmed by 'You move the X to the Y'), increment placed. Only stop when placed = 2. If placed = 1, you MUST find and place a second object.",
+        "when_to_apply": "After every placement action."
+      },
+      {
+        "skill_id": "pt2_003",
+        "title": "Use 'move' Not 'put' for Placement",
+        "principle": "Always check admissible actions. The correct placement command is 'move <object> to <destination>'. Do NOT use 'put <object> in/on <destination>' — it will fail with 'Nothing happens'.",
+        "when_to_apply": "When placing each object at the destination."
+      }
+    ],
+    "look_at_obj_in_light": [
+      {
+        "skill_id": "loo_001",
+        "title": "Correct Sequence: Find Object → Take → Go to Lamp → Use Lamp",
+        "principle": "The task 'look at X under the desklamp' or 'examine X with the desklamp' requires: (1) Find the target object X. (2) Take it: 'take X from <location>'. (3) Go to a location with a desklamp (desk, sidetable, dresser). (4) Use the desklamp: 'use desklamp N'. CRITICAL: 'use desklamp N' must be in the admissible actions list. If it's NOT listed, you might not be at the lamp's location — navigate there first.",
+        "when_to_apply": "For any 'look at X under the desklamp' or 'examine X with the desklamp' task."
+      },
+      {
+        "skill_id": "loo_002",
+        "title": "Find Object If Not at Lamp Location",
+        "principle": "The target object may NOT be at the same location as the desklamp. If you don't see it when you arrive at the lamp's location: (1) Do NOT repeatedly examine the same surface. (2) Search other rooms, shelves, drawers, dressers, beds, sidetables. (3) Once found, take it, return to the lamp location, then 'use desklamp N'.",
+        "when_to_apply": "When the target object is not visible at the desklamp's location."
+      },
+      {
+        "skill_id": "loo_003",
+        "title": "Verify 'use desklamp' is Admissible Before Using",
+        "principle": "Before issuing 'use desklamp N', check the admissible actions list. If 'use desklamp N' is NOT in the list, it means either: (a) you are not at the correct location — navigate to where the lamp is, or (b) you need to take the object first. The lamp action only works when you are holding the target object AND at the lamp's location.",
+        "when_to_apply": "Before attempting to use the desklamp."
+      }
+    ],
+    "clean": [
+      {
+        "skill_id": "cle_001",
+        "title": "Identify the EXACT Cleaning Target",
+        "principle": "Read the task precisely: 'put a clean X in Y' or 'clean some X and put it in Y'. Your target is X. CRITICAL confusions to avoid: cloth ≠ soapbottle; fork ≠ knife ≠ spatula ≠ butterknife; ladle ≠ spatula ≠ fork; soapbar ≠ soapbottle; plate ≠ pan ≠ pot; mug ≠ cup. Search until you find the EXACT object name that matches the task.",
+        "when_to_apply": "Before any 'take' action in a clean task."
+      },
+      {
+        "skill_id": "cle_002",
+        "title": "Correct Clean Sequence: Find → Take → Sink → Clean → Dest → Move",
+        "principle": "(1) Find target object by searching surfaces/containers. (2) 'take <object> from <location>' — verify 'You pick up' in response. (3) 'go to sinkbasin 1'. (4) Check admissible for 'clean <object> with sinkbasin 1' and execute it. Verify 'You clean the <object> using the sinkbasin 1' in response. (5) 'go to <destination>'. (6) Check admissible actions for 'move <object> to <destination>' and use it (NOT 'put'). If destination is a container, open it first.",
+        "when_to_apply": "Throughout the entire clean task."
+      },
+      {
+        "skill_id": "cle_003",
+        "title": "Confirm Clean Succeeded Before Moving On",
+        "principle": "After issuing 'clean X with sinkbasin 1', the observation should say 'You clean the X using the sinkbasin 1'. If it says 'Nothing happens', you might not be at the sinkbasin or might not be holding the object. Check inventory and location. Only proceed to the destination after confirming clean success.",
+        "when_to_apply": "After attempting the clean command."
+      },
+      {
+        "skill_id": "cle_004",
+        "title": "Search Priority for Cleanable Objects",
+        "principle": "Common locations: cloths → countertops, bathtubs, handtowelholders; forks/knives/spatulas/butterknives/ladles → countertops, diningtables, sinkbasins, drawers; soapbars → countertops, bathtubs, cabinets; plates/mugs/cups → countertops, diningtables, sinkbasins, cabinets; tomatoes/lettuce/apples → countertops, fridge, diningtables.",
+        "when_to_apply": "When starting to search for the target object."
+      }
+    ],
+    "heat": [
+      {
+        "skill_id": "heat_001",
+        "title": "Find EXACT Target Object for Heating",
+        "principle": "Parse task: 'heat some X and put it in Y' or 'put a hot X in Y'. Target is X. Common heatable objects: apple, bread, egg, mug, plate, potato, tomato, cup. Do NOT confuse: apple ≠ potato ≠ tomato; mug ≠ cup; plate ≠ pan. Search fridge, countertops, diningtables, cabinets.",
+        "when_to_apply": "Before any 'take' action in a heat task."
+      },
+      {
+        "skill_id": "heat_002",
+        "title": "Complete Heating Sequence",
+        "principle": "(1) Take target object. Verify 'You pick up'. (2) 'go to microwave 1'. (3) Check admissible: if 'heat X with microwave 1' is listed, use it directly (you don't need to put the object inside first). (4) Verify: 'You heat the X using the microwave 1'. (5) 'go to <destination>'. (6) Check admissible for 'move X to <destination>' and use it.",
+        "when_to_apply": "After taking the target object in a heat task."
+      },
+      {
+        "skill_id": "heat_003",
+        "title": "Handle Microwave Variants",
+        "principle": "If 'heat X with microwave 1' is NOT in admissible actions after going to the microwave: (a) Try 'open microwave 1' first, then check again. (b) Try putting the object in: 'put X in microwave 1' or 'move X to microwave 1'. (c) After putting it in, close and try 'heat X with microwave 1'. Always check admissible actions at each step.",
+        "when_to_apply": "When the standard heat command is not available."
+      }
+    ],
+    "cool": [
+      {
+        "skill_id": "coo_001",
+        "title": "Find EXACT Target Object for Cooling",
+        "principle": "Parse task: 'cool some X and put it in Y' or 'put a cool X in Y'. Target is X. CRITICAL: apple ≠ potato; tomato ≠ potato; bowl ≠ apple; cup ≠ mug; plate ≠ pan ≠ pot; winebottle ≠ bottle. If the task says 'cool some apple', ONLY take an apple. If you see a potato, DO NOT take it. Keep searching until you find the exact object.",
+        "when_to_apply": "Before any 'take' action in a cool task."
+      },
+      {
+        "skill_id": "coo_002",
+        "title": "Complete Cooling Sequence",
+        "principle": "(1) Take target object. Verify 'You pick up the X'. (2) 'go to fridge 1'. (3) If fridge is closed: 'open fridge 1'. (4) Check admissible for 'cool X with fridge 1' and execute it. Verify: 'You cool the X using the fridge 1'. (5) 'go to <destination>'. (6) Check admissible for 'move X to <destination>' and use it (NOT 'put X in/on Y').",
+        "when_to_apply": "After taking the target object in a cool task."
+      },
+      {
+        "skill_id": "coo_003",
+        "title": "NEVER Repeat Cool-Place Cycle",
+        "principle": "Once you have successfully cooled the object (confirmed by 'You cool the X using the fridge 1'), go to destination and place it ONCE with 'move X to Y'. If 'move' results in 'Nothing happens', check: (a) Are you at the correct destination? (b) Is the 'move X to Y' command in admissible actions? (c) Do you need to open the destination first? Do NOT go back to the fridge and cool again — the object is already cooled.",
+        "when_to_apply": "After successfully cooling the object."
+      },
+      {
+        "skill_id": "coo_004",
+        "title": "Search Strategy for Coolable Objects",
+        "principle": "Where to find objects: apples/tomatoes/potatoes/lettuce → fridge (open it first!), countertops, diningtables; cups/mugs → countertops, cabinets, coffeemachine area, shelves; bowls/plates → countertops, diningtables, cabinets, sinkbasins; pans/pots → stoveburners, cabinets; winebottles → countertops, diningtables.",
+        "when_to_apply": "When starting to search for the target object in a cool task."
+      }
+    ]
+  }
+}

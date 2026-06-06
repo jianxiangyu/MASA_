@@ -1,0 +1,212 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "Mandatory Search Before Answer",
+      "principle": "Always perform at least one <search> before any <answer>. Never answer from memory alone. Use a concise entity+attribute query of 2-5 keywords.",
+      "when_to_apply": "At the start of every question."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "ABSOLUTE BAN: Never Repeat or Near-Repeat a Query",
+      "principle": "Before issuing ANY search, compare it character-by-character to ALL previous queries in the conversation. If more than 50% of the words overlap with any prior query, it is FORBIDDEN. You MUST construct a COMPLETELY DIFFERENT query using: (1) synonyms/alternative names, (2) different search angle (search from answer-side instead of question-side), (3) related broader/narrower category, (4) the entity's official/alternative name. EXAMPLES OF FORBIDDEN REPETITION: 'Nobel Prize physics first' → 'first Nobel Prize in physics' (same words reordered). REQUIRED ALTERNATIVE: 'Wilhelm Röntgen 1901 award' or 'physics laureate earliest'. If you cannot think of a genuinely different query, you MUST answer immediately with your best guess from existing information.",
+      "when_to_apply": "Before EVERY search after the first one. Repeating queries is your #1 failure mode - it wastes all remaining steps with zero new information."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Maximize Step Utilization - Use All 4 Steps Wisely",
+      "principle": "You have EXACTLY 4 steps total. Strategy: (1) Simple questions: 1 search + answer = 2 steps. (2) Standard questions: 2 searches + answer = 3 steps. (3) Multi-hop/complex questions: 3 searches + answer = 4 steps. DO NOT answer prematurely after just 1 search if the question is clearly multi-hop or your first search was insufficient. Use your remaining steps to gather better evidence. However, your LAST step (step 4) MUST always be <answer>. Balance: don't over-search simple questions, but don't under-search complex ones.",
+      "when_to_apply": "At every decision point. For multi-hop questions, plan to use 3-4 steps. For simple questions, 2 steps suffice."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "Precision Query Construction",
+      "principle": "Queries should be 2-5 keyword phrases: exact entity name + target attribute. Omit question words, articles, filler. Use quotes for multi-word entity names. Add one disambiguator if needed (year, type, profession). GOOD: '\"Eiffel Tower\" height meters'. BAD: 'what is the height of the Eiffel Tower'. CRITICAL: Never paste the entire original question as your search query - always extract and reformulate the key terms.",
+      "when_to_apply": "When formulating any search."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Answer When Evidence is Sufficient - But Verify Relevance",
+      "principle": "If the search result contains a clear, explicit statement that answers the question, ANSWER IMMEDIATELY on the next step. However, before answering, verify that the information actually answers WHAT WAS ASKED - not a related but different question. One good, verified snippet is enough. Do not search for 'confirmation' unless information genuinely contradicts.",
+      "when_to_apply": "After every search that returns relevant information."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Effective Query Refinement - Must Be Genuinely Different",
+      "principle": "When initial search fails, use these strategies: (1) Search from the OPPOSITE direction (if searching person→attribute failed, try attribute→person), (2) Use the entity's full official name or well-known nickname, (3) Add temporal context (year, decade, era), (4) Add domain context (film, book, sport, country), (5) Try a broader category and scan for specifics. EACH refinement must share less than 50% words with prior queries.",
+      "when_to_apply": "When first search doesn't contain the answer."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Multi-Hop: Decompose Into Independent Sub-Queries",
+      "principle": "For chained/nested questions: ALWAYS decompose into independent steps. Step 1: identify the intermediate entity with a SHORT focused query (not the whole question). Step 2: use the FOUND entity name to search for the final attribute. Step 3: answer. CRITICAL RULE: Never use more than 5 words from the original question in any single search. If your query looks like the original question, you are doing it wrong.",
+      "when_to_apply": "Questions with nested relationships, relative clauses, or 'the X of the Y that Z' structure."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Exact String Answer - Minimal and Precise",
+      "principle": "The <answer> tag must contain ONLY the minimal exact answer string. Rules: (1) Person: full name as commonly known - 'James Cameron', 'C.S. Lewis'. (2) Year: just the number - '1997'. (3) Place: specific level asked - 'Paris' or 'France' depending on question. (4) Title: exact title - 'The Godfather'. (5) NEVER include articles (a, an, the) unless they are part of an official title. (6) NEVER include explanations or qualifiers. (7) When uncertain between short and long form, prefer the most commonly used form.",
+      "when_to_apply": "When writing any <answer>."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Read the Question PRECISELY - Identify What Is Actually Asked",
+      "principle": "Before searching, identify EXACTLY what the question asks. Common traps: (1) 'Who is depicted/portrayed in X' asks about the CHARACTER/SUBJECT, not the actor/writer. (2) 'Who wrote X' asks about the author, not the subject. (3) 'What won the award IN year X' - verify the exact ceremony year (e.g., '2005 Oscar' might mean the ceremony held in 2005 for 2004 films, or the award for a 2005 film given in 2006). (4) 'The tagline of X' asks for the movie/book's tagline, not a character's quote. Always re-read the question after finding results to confirm you're answering what was asked.",
+      "when_to_apply": "Before every search and before every answer. This prevents extracting the wrong entity from correct search results."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Comparison Protocol: Separate Searches, Single Answer",
+      "principle": "For comparison questions: search Entity A attribute, search Entity B attribute, then answer with the winning entity name only. Ensure you retrieve values for BOTH entities before answering.",
+      "when_to_apply": "Comparative questions (which is older, taller, earlier, etc.)."
+    },
+    {
+      "skill_id": "gen_011",
+      "title": "Best-Effort Answer Over No Answer",
+      "principle": "If after 2-3 searches you cannot find the perfect answer, STILL provide your best answer based on available information. An approximate answer has some chance of being correct; no answer guarantees zero score. Never end without an <answer> tag.",
+      "when_to_apply": "When approaching step limit and answer is uncertain."
+    },
+    {
+      "skill_id": "gen_012",
+      "title": "Temporal/Year Disambiguation for Awards and Events",
+      "principle": "For questions about awards, championships, or annual events: (1) 'X award YEAR' can be ambiguous - the 2005 ceremony vs works from 2005. (2) Always search with both the year AND the specific ceremony number if possible (e.g., '77th Academy Awards' = ceremony in 2005 for 2004 films). (3) For Oscar questions, note: films released in year N are typically awarded at the ceremony in year N+1. (4) When results show multiple years, pick the one matching the question's intent.",
+      "when_to_apply": "Questions about annual awards (Oscar, Grammy, Nobel, etc.) or annual events."
+    }
+  ],
+  "task_specific_skills": {
+    "direct_retrieval": [
+      {
+        "skill_id": "direct_001",
+        "title": "One-Shot Retrieval for Simple Facts",
+        "principle": "For straightforward factual questions (who/what/when/where + known entity), aim for the 2-step pattern: Step 1: search 'entity attribute'. Step 2: <answer>value</answer>. Do not over-complicate simple questions with multiple searches.",
+        "when_to_apply": "Simple factual questions about well-known entities."
+      },
+      {
+        "skill_id": "direct_002",
+        "title": "Radical Query Reformation on Failure",
+        "principle": "When your first query fails, COMPLETELY RESTRUCTURE. Strategies: (1) Try the entity's full official name, (2) Search from the attribute side (e.g., '1901 Nobel Prize physics winner' instead of 'first physics Nobel'), (3) Use a related Wikipedia article title, (4) Try the entity in a different language or alternative spelling. The new query must look NOTHING like the previous one.",
+        "when_to_apply": "After any failed search (no clear answer in results)."
+      },
+      {
+        "skill_id": "direct_003",
+        "title": "Entity Verification from Context",
+        "principle": "When results mention multiple entities with similar names, verify which one matches the question's context. Check: year, country, domain, profession. If the question asks about 'the film Shadowlands', make sure you're extracting info about the correct Shadowlands (1993 film, not the 1985 TV film or the video game).",
+        "when_to_apply": "When results contain multiple candidate entities."
+      },
+      {
+        "skill_id": "direct_004",
+        "title": "Full Name Extraction - Common Form",
+        "principle": "For person names: (1) Use the MOST COMMONLY KNOWN form of the name. (2) If the person is widely known by a shortened name (e.g., 'Ross Bagdasarian' rather than 'Ross Bagdasarian Sr.'), prefer the common form. (3) For historical figures, use the anglicized/common form. (4) When in doubt, use the form that appears most frequently in search results or Wikipedia article titles.",
+        "when_to_apply": "When the answer is a person's name."
+      },
+      {
+        "skill_id": "direct_005",
+        "title": "Temporal Anchoring",
+        "principle": "For time-sensitive facts, add the relevant year to your query. For 'current' questions use 2025. For historical questions, include the specific year mentioned. Discard results that are from the wrong time period.",
+        "when_to_apply": "Questions with temporal modifiers."
+      },
+      {
+        "skill_id": "direct_006",
+        "title": "Distinguish Subject vs. Creator vs. Portrayer",
+        "principle": "Pay careful attention to what role the question asks about: (1) 'Whose life/love story is depicted in X' → the real person being portrayed (the SUBJECT). (2) 'Who wrote/directed/produced X' → the CREATOR. (3) 'Who starred in / played the role in X' → the ACTOR. (4) 'Who is X about' → the SUBJECT. These are different people! Extract the correct one based on what is actually asked.",
+        "when_to_apply": "Questions about films, books, biographies, or biopics where subject and creator are different people."
+      }
+    ],
+    "multi_hop_reasoning": [
+      {
+        "skill_id": "multihop_001",
+        "title": "Mandatory Decomposition - Short Sub-Queries Only",
+        "principle": "BEFORE any search, decompose the question: identify (1) what intermediate entity you need, (2) what final attribute you need. Then search for ONLY the intermediate entity first, using a SHORT query (3-5 words max). NEVER paste or paraphrase the entire multi-hop question as a search query. BAD: 'which Oxford college was founded by person who...'. GOOD: 'person_name Oxford college' (after finding person_name in step 1).",
+        "when_to_apply": "Every multi-hop question. This is critical - using the whole question as a query always fails."
+      },
+      {
+        "skill_id": "multihop_002",
+        "title": "First Hop: Find the Bridge Entity",
+        "principle": "The first search should identify the BRIDGE ENTITY (the intermediate answer). Use the most specific identifying information from the question. For 'the director of the 2003 film X', search '\"X\" 2003 film director'. For 'the birthplace of the person who invented Y', search 'Y inventor' or 'who invented Y'. Keep it focused on finding ONE entity.",
+        "when_to_apply": "First-hop searches."
+      },
+      {
+        "skill_id": "multihop_003",
+        "title": "Second Hop: Use Found Entity Exactly",
+        "principle": "After finding the bridge entity, use its EXACT NAME for the second search. Do not go back to the original question phrasing. Found 'James Cameron' as director → search 'James Cameron birthplace'. Found 'Oxford University' as institution → search 'Oxford University founding year'. The second query should be simple: 'EntityName attribute'.",
+        "when_to_apply": "Moving from first hop to second hop."
+      },
+      {
+        "skill_id": "multihop_004",
+        "title": "Use All Available Steps for Complex Chains",
+        "principle": "For 3+ hop questions (common in musique/bamboogle): use up to 3 searches before answering. Plan: Search1→bridge_entity_1, Search2→bridge_entity_2, Search3→final_attribute, then Answer. If a hop fails, try ONE reformulation before moving on with partial information. Never waste steps by repeating failed queries.",
+        "when_to_apply": "Complex multi-hop questions requiring 3+ reasoning steps."
+      },
+      {
+        "skill_id": "multihop_005",
+        "title": "Force Answer After Collecting Evidence",
+        "principle": "Once you have found both the intermediate entity AND the final attribute, IMMEDIATELY answer. Do not search for additional confirmation. If you've used 3 steps on searches, step 4 MUST be answer.",
+        "when_to_apply": "After the second or third successful hop retrieval."
+      },
+      {
+        "skill_id": "multihop_006",
+        "title": "When First Hop Fails: Try Alternative Identification",
+        "principle": "If you cannot find the bridge entity on first try: (1) Try searching for a DIFFERENT identifying detail from the question, (2) Try the entity's alternative name or description, (3) Search for the relationship from the other direction. But NEVER repeat the same query. If second attempt also fails, make your best guess and proceed to the final hop with whatever information you have.",
+        "when_to_apply": "When first-hop search returns no useful results."
+      }
+    ],
+    "entity_attribute_lookup": [
+      {
+        "skill_id": "entity_001",
+        "title": "Direct Infobox-Style Query",
+        "principle": "For named entities, construct the query as: 'Entity_Name attribute_keyword'. Use Wikipedia-style attribute terms: 'born', 'founded', 'located', 'directed by', 'genre', 'height', 'population'.",
+        "when_to_apply": "Entity is clearly named in the question."
+      },
+      {
+        "skill_id": "entity_002",
+        "title": "Two-Step Indirect Entity Resolution",
+        "principle": "When entity is described relationally ('the author of X', 'the capital of Y's country'): Step 1 - search the relationship to find entity name. Step 2 - search entity name + target attribute. Never combine both in one search.",
+        "when_to_apply": "Entity described via relationship/possession."
+      },
+      {
+        "skill_id": "entity_003",
+        "title": "Answer Type Verification",
+        "principle": "Before answering, verify your extracted value matches the expected type: 'who' → person name, 'where' → place name, 'when' → time/date, 'how many' → number, 'which' → specific entity name. If your answer type doesn't match the question word, you likely extracted the wrong thing.",
+        "when_to_apply": "Before finalizing answer."
+      },
+      {
+        "skill_id": "entity_004",
+        "title": "Precise Value Extraction - Match Question Scope",
+        "principle": "Extract the EXACT value that answers the specific question: (1) If asked 'which country', answer 'France' not 'Paris, France'. (2) If asked 'which city', answer 'Paris' not 'France'. (3) If asked 'who', give the person's name, not their title or role. (4) Copy names/titles verbatim from the source. (5) For questions asking 'what is the tagline/motto/slogan', extract the exact quoted phrase.",
+        "when_to_apply": "When extracting the final attribute value from search results."
+      },
+      {
+        "skill_id": "entity_005",
+        "title": "Disambiguate Entities Proactively",
+        "principle": "For common/ambiguous names, include a disambiguator in your FIRST search: 'Nine 2009 film director', 'Michael Jordan basketball height', 'Paris France population', 'The Blues Brothers 1980 film tagline'. Don't wait for bad results to disambiguate - anticipate the ambiguity from the start.",
+        "when_to_apply": "When entity name is generic, short, or commonly shared across domains."
+      }
+    ],
+    "comparison": [
+      {
+        "skill_id": "comp_001",
+        "title": "Separate Retrieval for Each Entity",
+        "principle": "Search each entity's attribute independently. Never try to find both in one search. Record each value mentally before comparing. Plan: search A (step 1), search B (step 2), compare and answer (step 3).",
+        "when_to_apply": "Start of every comparison question."
+      },
+      {
+        "skill_id": "comp_002",
+        "title": "Normalize Then Compare",
+        "principle": "Convert values to comparable format: dates → YYYY (or full date if needed), heights → same unit, counts → numbers. Then apply the comparison operator: earlier = smaller year, older = born earlier, taller = larger number, more = higher count.",
+        "when_to_apply": "After collecting both values."
+      },
+      {
+        "skill_id": "comp_003",
+        "title": "Answer is Entity Name Only",
+        "principle": "The final answer for a comparison question is JUST the name of the winning entity. Not the value, not an explanation. <answer>Entity A</answer>.",
+        "when_to_apply": "Formulating the comparison answer."
+      },
+      {
+        "skill_id": "comp_004",
+        "title": "Indirect Comparison: Efficient Step Planning",
+        "principle": "For comparing attributes of related entities (e.g., directors' birth years): Plan carefully within 4 steps. Strategy: (1) Search entity_A to find intermediate info, (2) Search entity_B to find intermediate info, (3) If needed, search for the actual comparable attribute, (4) Answer. Try to extract as much as possible from each search to minimize steps needed.",
+        "when_to_apply": "Comparisons involving indirect attributes that require intermediate lookups."
+      }
+    ]
+  }
+}

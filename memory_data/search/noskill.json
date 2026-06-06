@@ -1,0 +1,9 @@
+{
+  "general_skills": [],
+  "task_specific_skills": {},
+  "common_mistakes": [],
+  "metadata": {
+    "source": "no skill baseline",
+    "description": "Empty skill bank for ablation study - no skills injected into the prompt"
+  }
+}

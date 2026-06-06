@@ -1,0 +1,188 @@
+{
+  "general_skills": [
+    {
+      "skill_id": "gen_001",
+      "title": "ALWAYS End with <answer> - Never End on Search",
+      "principle": "Every episode MUST end with an <answer> tag. It is FORBIDDEN to end your last step with a <search>. If you are on step 3 or 4 and have ANY information from previous searches, you MUST output <answer>. An imperfect answer scores better than no answer. If search results are incomplete, extract the best available fact and answer with it.",
+      "when_to_apply": "CRITICAL: Before every action on step 3 or 4, check if you should answer instead of searching."
+    },
+    {
+      "skill_id": "gen_002",
+      "title": "Search Once, Answer Promptly",
+      "principle": "For most factual questions, one well-crafted search followed by careful extraction is sufficient. After getting a clear snippet with the answer, IMMEDIATELY answer on the next step. Do not search for 'cross-validation' or 'additional confirmation' unless the first result is genuinely ambiguous or contradictory. Over-caution wastes your limited steps.",
+      "when_to_apply": "After every search that returns a clear, authoritative answer."
+    },
+    {
+      "skill_id": "gen_003",
+      "title": "Surgical First Query",
+      "principle": "The first query should be your best shot. Construct it as: exact_entity + precise_attribute + one_disambiguator(if_needed). Examples: '\"Eiffel Tower\" height', 'Inception director', 'Apple CEO 2025'. Strip all question words and filler. Get it right the first time.",
+      "when_to_apply": "First search of every question."
+    },
+    {
+      "skill_id": "gen_004",
+      "title": "4-Step Budget - Plan Before Searching",
+      "principle": "Before your first search, PLAN your step budget: Simple facts = 2 steps (search + answer). Multi-hop = 3 steps (search + search + answer). Comparison = 3-4 steps (searchA + searchB + answer). NEVER plan to use all 4 steps on searches. Always reserve 1 step for the answer.",
+      "when_to_apply": "At the start of every question, before the first search."
+    },
+    {
+      "skill_id": "gen_005",
+      "title": "Decisive Answer Extraction",
+      "principle": "When a snippet clearly contains the answer (e.g., 'X was born in Y', 'the director is Z'), extract it and answer decisively. Do not hedge with additional searches. Do not worry about whether there might be a 'better' answer. The first clear evidence is usually correct. Trust it.",
+      "when_to_apply": "When a snippet explicitly states the fact you're looking for."
+    },
+    {
+      "skill_id": "gen_006",
+      "title": "Never Repeat - Radically Different Queries Only",
+      "principle": "If your first search fails, the next query MUST be substantially different: different keywords, different angle, different context. Not just reordering or adding one word. Example: 'short wave broadcast mode' fails → try 'AM FM SSB radio broadcasting' or 'shortwave radio transmission type'.",
+      "when_to_apply": "Before any search after the first one."
+    },
+    {
+      "skill_id": "gen_007",
+      "title": "Multi-Hop: Two Searches Maximum",
+      "principle": "Multi-hop questions require exactly 2 searches: (1) find intermediate entity, (2) find its attribute. Then answer. Do not add verification searches or alternate queries - you don't have the budget. Be precise on the first attempt for each hop.",
+      "when_to_apply": "Multi-hop/nested questions."
+    },
+    {
+      "skill_id": "gen_008",
+      "title": "Minimal Exact Answer String",
+      "principle": "Inside <answer> tags, put ONLY the minimal factual string. For names: 'Christopher Nolan'. For dates: 'July 26, 2024'. For numbers: '291'. For places: 'London, England'. NEVER include sentences, qualifications ('approximately', 'as of'), or explanations. Exact match evaluation means extra words = failure.",
+      "when_to_apply": "Every time you write <answer>."
+    },
+    {
+      "skill_id": "gen_009",
+      "title": "Proactive Disambiguation",
+      "principle": "For ambiguous entities, disambiguate in your FIRST query - don't wait for bad results. Add medium (film/book/song), year, profession, or nationality. 'The River 1984 film director', 'Michael Jordan basketball player height', 'Mercury planet distance'.",
+      "when_to_apply": "When entity name is short, common, or has known homonyms."
+    },
+    {
+      "skill_id": "gen_010",
+      "title": "Best-Guess Answer Over No Answer",
+      "principle": "If after searching you cannot find the perfect answer, provide your BEST GUESS based on available evidence. Extract the most likely candidate from your search results. A reasonable guess based on snippets has a chance of being correct; no answer ALWAYS scores zero. When in doubt, ANSWER.",
+      "when_to_apply": "When approaching step limit with incomplete information."
+    },
+    {
+      "skill_id": "gen_011",
+      "title": "Comparison: Collect Then Answer Immediately",
+      "principle": "For comparison questions: search entity A's attribute, search entity B's attribute, then IMMEDIATELY answer with the winning entity name. Do not search for verification of the comparison. Just compare the values and answer.",
+      "when_to_apply": "Comparison questions."
+    }
+  ],
+  "task_specific_skills": {
+    "direct_retrieval": [
+      {
+        "skill_id": "direct_001",
+        "title": "2-Step Direct Retrieval Pattern",
+        "principle": "Simple factual questions: Step 1: <search>entity attribute</search>. Step 2: <answer>extracted_value</answer>. That's the optimal pattern. If your first search returns clear evidence, answer immediately. No need for confirmation searches.",
+        "when_to_apply": "Straightforward factual questions."
+      },
+      {
+        "skill_id": "direct_002",
+        "title": "Read Snippets Carefully - Extract Exact Match",
+        "principle": "After search, read ALL returned docs. Find the sentence that directly answers the question. The answer should be a verbatim copy of the relevant fact from the snippet. If the snippet says 'born in Warsaw, Poland', and the question asks 'where was X born?', answer 'Warsaw, Poland'. Copy exactly.",
+        "when_to_apply": "When extracting answer from search results."
+      },
+      {
+        "skill_id": "direct_003",
+        "title": "Full Name Preference",
+        "principle": "For person names, prefer the complete official form from the source. If the snippet says 'Pyotr Ilyich Tchaikovsky' or 'Wilhelm Conrad Röntgen', use the full name. Ground truth often expects complete names.",
+        "when_to_apply": "When answer is a person's name."
+      },
+      {
+        "skill_id": "direct_004",
+        "title": "One Refinement, Then Answer",
+        "principle": "If the first search doesn't give a clear answer, try ONE refined query with better keywords. If that also doesn't clearly answer it, provide your best answer from whatever information you have gathered. Do not keep searching indefinitely.",
+        "when_to_apply": "After a failed first search."
+      }
+    ],
+    "multi_hop_reasoning": [
+      {
+        "skill_id": "multihop_001",
+        "title": "Decompose and Execute in 3 Steps",
+        "principle": "Multi-hop = 3 steps maximum: (1) Search for intermediate entity with precise query including disambiguators. (2) Search for final attribute using the found entity name. (3) Answer. No verification steps, no repeats.",
+        "when_to_apply": "Every multi-hop question."
+      },
+      {
+        "skill_id": "multihop_002",
+        "title": "First-Hop Disambiguation",
+        "principle": "When the intermediate entity might be ambiguous (common film titles, generic names), add disambiguating context in your first search: year, medium, notable feature. 'Fame 1980 film screenwriter' not 'Fame writer'. This prevents wrong entity cascades.",
+        "when_to_apply": "First-hop search for potentially ambiguous entities."
+      },
+      {
+        "skill_id": "multihop_003",
+        "title": "Use Exact Found Name for Second Hop",
+        "principle": "After identifying the intermediate entity from the first search, use that EXACT name for the second search. Example: found 'Alan Parker' → search 'Alan Parker birthplace'. Don't go back to the original question phrasing.",
+        "when_to_apply": "Second-hop search construction."
+      },
+      {
+        "skill_id": "multihop_004",
+        "title": "Accept First Clear Evidence at Each Hop",
+        "principle": "At each hop, if the snippet clearly states the answer (e.g., 'directed by Alan Parker'), accept it and move to the next hop. Do not search for confirmation of obvious facts. Speed is essential given the 4-step limit.",
+        "when_to_apply": "After each hop's search returns results."
+      },
+      {
+        "skill_id": "multihop_005",
+        "title": "Forced Answer After Second Search",
+        "principle": "After your second search in a multi-hop chain, you MUST answer on the next step regardless of confidence. Use whatever evidence you have gathered. Do not issue a third search unless you are still on step 2.",
+        "when_to_apply": "After the second search in multi-hop."
+      }
+    ],
+    "entity_attribute_lookup": [
+      {
+        "skill_id": "entity_001",
+        "title": "Direct Query: Entity Name + Attribute",
+        "principle": "For directly named entities: search '[Full Entity Name] [attribute_keyword]'. Use Wikipedia-style terms: 'born', 'founded', 'height', 'genre', 'occupation'. Prefer exact official names.",
+        "when_to_apply": "Entity is unambiguously named."
+      },
+      {
+        "skill_id": "entity_002",
+        "title": "Two-Step Indirect Resolution",
+        "principle": "For relationally-described entities: Step 1 - identify entity. Step 2 - look up attribute. Never combine. Example: 'occupation of X's father' → search 'X father name' → search '[found_name] occupation'.",
+        "when_to_apply": "Entity described via relationship."
+      },
+      {
+        "skill_id": "entity_003",
+        "title": "Answer Immediately When Found",
+        "principle": "Once the infobox-style fact appears in results (e.g., 'Born: Warsaw, Poland'), extract it and answer RIGHT AWAY. Do not search for additional verification. One authoritative source is enough.",
+        "when_to_apply": "When search results contain the exact attribute."
+      },
+      {
+        "skill_id": "entity_004",
+        "title": "Minimal Verbatim Extraction",
+        "principle": "Copy the attribute value exactly as it appears in the most concise, authoritative format. For birthplace: 'Warsaw, Poland'. For occupation: 'screenwriter'. For date: use the format shown. Nothing more.",
+        "when_to_apply": "When forming the final answer."
+      }
+    ],
+    "comparison": [
+      {
+        "skill_id": "comp_001",
+        "title": "Two Searches Then Answer - No More",
+        "principle": "Comparison workflow: Step 1 - search Entity A + attribute. Step 2 - search Entity B + attribute. Step 3 - <answer>winning entity name</answer>. Maximum 3 steps. Do NOT search for verification after finding both values.",
+        "when_to_apply": "All comparison questions."
+      },
+      {
+        "skill_id": "comp_002",
+        "title": "Entity Name Only in Answer",
+        "principle": "The comparison answer is ONLY the entity name that wins. Not numbers, not explanations, not 'Entity A is older because...'. Just: <answer>Entity A</answer>.",
+        "when_to_apply": "Final comparison answer."
+      },
+      {
+        "skill_id": "comp_003",
+        "title": "Normalize and Compare Simply",
+        "principle": "After getting both values: convert to same format (dates→YYYY, heights→meters), then apply the comparison. Earlier = smaller year. Older = earlier birth. Taller = bigger number. Answer the entity that satisfies the question's condition.",
+        "when_to_apply": "After collecting both attribute values."
+      },
+      {
+        "skill_id": "comp_004",
+        "title": "Handle Incomplete Comparisons",
+        "principle": "If you can only find ONE entity's attribute due to step budget, still answer with your best guess. If the found value seems extreme (very early date, very high number), the answer is likely that entity. Better to guess with partial evidence than give no answer.",
+        "when_to_apply": "When approaching step limit with only one value found."
+      },
+      {
+        "skill_id": "comp_005",
+        "title": "Indirect Comparison Efficiency",
+        "principle": "For indirect comparisons (e.g., comparing directors' birth years): try to find director+birthyear in the same search when possible. Query: 'Film_A director born year'. If both facts appear in one snippet, you save a step. Otherwise fall back to separate searches.",
+        "when_to_apply": "Comparison involving attributes of related entities."
+      }
+    ]
+  }
+}
