@@ -84,7 +84,7 @@ Embedding model for skill retrieval: [Qwen3-Embedding-0.6B](https://huggingface.
 ### Installation
 
 ```bash
-git clone https://github.com/your-org/MASA.git
+git clone https://github.com/jianxiangyu/MASA_.git
 cd MASA
 
 pip install -e .
